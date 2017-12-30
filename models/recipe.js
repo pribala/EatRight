@@ -26,6 +26,11 @@ const recipeSchema = new Schema({
     type: String,
     required: true
   },
+  // `category` is of type String
+  category: {
+  	type: String,
+  	required: true
+  },
   // `datePosted` is not required and of type Date
   datePosted: { 
   	type: Date,

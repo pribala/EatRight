@@ -12,7 +12,9 @@ const CommentSchema = new Schema({
   // `body` is of type String
   { commentBody: String, required: true },
   // `commentDate` is of type date
-  { commentDate: Date, required: false, default: Date.now }
+  { commentDate: Date, required: false, default: Date.now },
+  // `rating` is of type number
+  { rating: Number, required: true }
 });
 
 // This creates our model from the above schema, using mongoose's model method
