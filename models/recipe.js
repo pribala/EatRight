@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 // Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
@@ -8,7 +9,7 @@ const recipeSchema = new Schema({
   recipeTitle: {
     type: String,
     required: true,
-    unique: true
+   unique: true
   },
   // `link` is required and of type String
   recipeLink: {
@@ -22,17 +23,25 @@ const recipeSchema = new Schema({
     default: "https://cdn.pinchofyum.com/wp-content/uploads/Top25Recipes-01.png" 
   },
   // `summary` is required and of type String
-  recipeSummary: {
-    type: String,
-    required: true
-  },
+  // recipeSummary: {
+  //   type: String,
+  //   required: true
+  // },
   // `category` is of type String
-  category: {
+  healthlabels: {
   	type: String,
-  	required: true
+  	required: false
+  },
+ dietlabels: {
+  	type: String,
+  	required: false
+  },
+calories: {
+  	type: Number,
+  	required: false
   },
   // `datePosted` is not required and of type Date
-  datePosted: { 
+  date: { 
   	type: Date,
   	required: false,
   	default: Date.now  
