@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html, body, #root {
+  padding: 100;
+  margin: 100;
+  height: 100%;
+  width: 100%;
+}
+/* body{padding-top: 50px;
+ background: rgb(131, 175, 204);
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/110/453/non_2x/vector-grunge-texture-background.jpg");
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  padding-right: 400px;
+  padding-left:400px;
+  justify-content: space-around;
+  align-content: flex-start;
+  overflow: auto;} */
+  .cards{
+    justify-content: space-around;
+    align-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+  } 
+  element.style{
+    width:auto;
+  }
+  #searchbar {
+    width: 100%;
+    height: 60px;
+    padding-top: 30px;
+    background-color: #96a3ba;
+  }
+  
+  #advanced-searchbar {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #advanced-searchbar-input-group {
+   display: inline-flex;
+    margin-left: 2%;
+    /* display: flex; */
+    flex-flow: row wrap; 
+    /* justify-content: space-around; */
+    /* align-content: flex-start; */
+  }
+  
+  #advanced-search-input {
+    margin-right: 6px;
+    width: 100px;
+  }
+  
+  .searchbar-input-labels {
+    margin-left: 12px;
+    padding-right: 8px;
+  }
+  
+  #diet-label-drop-down{
+    margin-right: 12px;
+  }
+  
+  #health-label-drop-down{
+    margin-right: 12px;
+  }
+  
+  @media (min-width: 1200px){
+  .container {
+      max-width: 100%;
+  }
+}
