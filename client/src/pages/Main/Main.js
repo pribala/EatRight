@@ -15,7 +15,8 @@ class Main extends Component {
     vote: 0,
     selectValue: "",
     Allergies: "",
-    Calories: ""
+    Calories: "",
+    url:""
   };
 
   getRecipes = () => {
@@ -47,15 +48,15 @@ class Main extends Component {
       .catch(err => console.log(err));
   };
 
-  saveRecipes = recipeInfo => {
-    API.saveRecipes(recipeInfo)
-      .then(res => {
-        console.log("hey it saved");
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  // saveRecipes = recipeInfo => {
+  //   API.saveRecipes(recipeInfo)
+  //     .then(res => {
+  //       console.log("hey it saved");
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -87,13 +88,19 @@ class Main extends Component {
     this.getRecipes();
     // }
   };
-
-  // Get value of button clicked
-  handleVote = event => {
-    console.log(event.target);
-    console.dir(event.target.attributes);
-    alert("i am lykd");
+  urlhandler= id => {
+    // Filter this.state.friends for friends with an id not equal to the id being removed
+    // const url = this.state.friends.filter(friend => friend.id !== id);
+    // Set this.state.friends equal to the new friends array
+    // this.setState({ friends });
+    console.log(id);
   };
+  // Get value of button clicked
+  // handleVote = event => {
+  //   console.log(event.target);
+  //   console.dir(event.target.attributes);
+  //   alert("i am lykd");
+  // };
   render() {
     return (
       <div>
@@ -173,7 +180,6 @@ class Main extends Component {
           </Select>
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
-
         <Row>
           <Col size="col-md-3">
             <h1>Recipe Results</h1>
@@ -186,10 +192,9 @@ class Main extends Component {
                         <RecipeCard
                           image={recipe.recipe.image}
                           class="img-fluid"
-                          key={recipe.id}
+                          key={recipe.recipe.url}
                         />
-                        <a href={recipe.recipe.url} target="_blank" />
-                        <h5 id="recipe-detail-title">{recipe.recipe.label}</h5>
+                        <Link to={"/details/" + recipe.recipe.shareAs.split('/').slice(-2)[0]+ recipe.recipe.shareAs.split('/').slice(-3)[0]}>{recipe.recipe.label}</Link>
                         {/* render buttons and pass props to them */}
 
                       </div>

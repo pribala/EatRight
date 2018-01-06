@@ -19,5 +19,11 @@ export default {
   },
   saveRecipes: function(recipeData) {
     return axios.post('/api/saved', recipeData);
-  }
+  },
+  // getSelectedRecipe:function(recipeDate){
+  //   return axios.get('/api/details'+ id)
+  // }
+  // getRecipe: function(id) {
+  //   return axios.get("/api/recipe/" + id);
+  // },
 };
