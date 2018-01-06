@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {Container} from './components/Grid'
 import Main from './pages/Main';
 import Saved from './pages/Saved';
-import NoMatch from './pages/NoMatch';
+import RecipeDetail from './pages/RecipeDetail';
 import Nav from './components/Nav';
 
 const App = () => (
@@ -12,10 +12,9 @@ const App = () => (
       <Nav />
       <Switch>
         <Route exact path="/" component={Main} />
+        <Route exact path="/details" component={RecipeDetail} />
         <Route exact path="/saved" component={Saved} />
-        <Route exact path="/saved" component={Saved} />
-        
-        <Route component={NoMatch} />
+       
       </Switch>
     </Container>
   </Router>

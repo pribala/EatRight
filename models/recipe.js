@@ -22,12 +22,6 @@ const recipeSchema = new Schema({
     required: false,
     default: "https://cdn.pinchofyum.com/wp-content/uploads/Top25Recipes-01.png" 
   },
-  // `summary` is required and of type String
-  // recipeSummary: {
-  //   type: String,
-  //   required: true
-  // },
-  // `category` is of type String
   healthlabels: {
   	type: String,
   	required: false
