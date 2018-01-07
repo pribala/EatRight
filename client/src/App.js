@@ -5,14 +5,13 @@ import Main from './pages/Main';
 import Saved from './pages/Saved';
 import RecipeDetail from './pages/RecipeDetail';
 import Nav from './components/Nav';
-
 const App = () => (
   <Router>
     <Container >
       <Nav />
       <Switch>
         <Route exact path="/" component={Main} />
-        <Route exact path="/details" component={RecipeDetail} />
+        <Route exact path="/details/:label/:query" component={RecipeDetail} />
         <Route exact path="/saved" component={Saved} />
        
       </Switch>
