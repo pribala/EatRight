@@ -66,9 +66,9 @@ html, body, #root {
       max-width: 100%;
   }
 }
-  @media (min-width: 576px){
+  /* @media (min-width: 576px){
 
 .contimg{
     padding: 4rem 2rem;
 }
-  }
+  } */

@@ -107,11 +107,11 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Jumbotron >
+        <Jumbotron>
           <h1>Search for a topic.</h1>
         </Jumbotron>
-       <br/>
-        <div id="advanced-searchbar-input-group" >
+        <br/>
+        <div id="advanced-searchbar-input-group">
           <label
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
@@ -175,7 +175,7 @@ class Main extends Component {
             value={this.state.Calories}
             onChange={this.handleCalories}
           >
-            <option defaultValue="selected" value=" " />
+            <option selected="selected" value=" " />
             <option value="200">200</option>
             <option value="300">300</option>
             <option value="400">400</option>
@@ -194,10 +194,10 @@ class Main extends Component {
             <Row>
               <div className="row text-center">
                 {this.state.recipes.length ? (
-                  <div className="card">
+                  <div className="cards">
                     {this.state.recipes.map(recipe => (
                       <div className="col-md-4" key={recipe.recipe.url}>
-                        <RecipeCard 
+                        <RecipeCard
                           image={recipe.recipe.image}
                           class="img-fluid"
                           key={recipe.recipe.url}
@@ -210,23 +210,16 @@ class Main extends Component {
                           healthlabels:recipe.recipe.healthLabels,
                           dietlabels:recipe.recipe.dietLabels,
                           calories:recipe.recipe.calories})}>{recipe.recipe.label}</Link>
-                       {/* <Link to={"/details/" + recipe.recipe.shareAs.split('/').slice(-2)[0]+ recipe.recipe.shareAs.split('/').slice(-3)[0]}>{recipe.recipe.label}</Link>*/}
                         {/* render buttons and pass props to them */}
-                       {/*<button onClick={() => this.recipeDetail({
-                           recipeTitle: recipe.recipe.label,
-                           recipeLink: recipe.recipe.url,
-                           recipeImage:recipe.recipe.image,
-                           healthlabels:recipe.recipe.healthLabels,
-                           dietlabels:recipe.recipe.dietLabels,
-                       calories:recipe.recipe.calories})}>Click</button> */}
+                       
                       </div>
                     ))}
                   </div>
                 ) : (
+                  
                   <span role="img"  id= "notes" aria-label="Face With Rolling Eyes Emoji">
-              🙄No Results to Display 
-            </span>
-                 
+                               🙄No Results to Display 
+                            </span>
                    
                 )}
               </div>
@@ -234,10 +227,145 @@ class Main extends Component {
             )}</div>
           </Col>
         </Row>
-
+        
       </div>
     );
   }
 }
+//   render() {
+//     return (
+//       <div>
+//         <Jumbotron >
+//           <h1>Search for a topic.</h1>
+//         </Jumbotron>
+//        <br/>
+//         <div id="advanced-searchbar-input-group" >
+//           <label
+//             htmlFor="advanced-search-input"
+//             className="searchbar-input-labels"
+//           >
+//             Name
+//           </label>
+//           <Input
+//             value={this.state.queryTerm}
+//             onChange={this.handleInputChange}
+//             name="queryTerm"
+//             placeholder="Topic (required)"
+//           />
+//           <label
+//             htmlFor="diet-label-drop-down"
+//             className="searchbar-input-labels"
+//           >
+//             Diet Label
+//           </label>
+//           <Select
+//             id="diet-label-drop-down"
+//             value={this.state.selectValue}
+//             onChange={this.handleChange}
+//           >
+//             <option value="" />
+//             <option value="high-protein">high protein</option>
+//             <option value="high-fiber">high fibre</option>
+//             <option value="low-fat">low fat</option>
+//             <option value="low-carb">low carb</option>
+//             <option value="low-sodium">low sodium</option>
+//           </Select>
+//           <label
+//             htmlFor="health-label-drop-down"
+//             className="searchbar-input-labels"
+//           >
+//             Allergies
+//           </label>
+//           <Select
+//             id="health-label-drop-down"
+//             value={this.state.Allergies}
+//             onChange={this.handleAllergies}
+//           >
+//             <option value="" />
+//             <option value="alcohol-free">Alcohol Free</option>
+//             <option value="dairy-free">Dairy Free</option>
+//             <option value="egg-free">Egg Free</option>
+//             <option value="gluten-free">Gluten Free</option>
+//             <option value="peanut-free">Peanut Free</option>
+//             <option value="low-sugar">Low Sugar</option>
+//             <option value="vegetarian">Vegetarian</option>
+//             <option value="soy-free">SoyFree</option>
+//             <option value="vegan">vegan</option>
+//           </Select>
+//           <label
+//             htmlFor="calories-drop-down"
+//             className="searchbar-input-labels"
+//           >
+//             max. calories
+//           </label>
+//           <Select
+//             id="calories-drop-down"
+//             value={this.state.Calories}
+//             onChange={this.handleCalories}
+//           >
+//             <option defaultValue="selected" value=" " />
+//             <option value="200">200</option>
+//             <option value="300">300</option>
+//             <option value="400">400</option>
+//             <option value="500">500</option>
+//             <option value="600">600</option>
+//           </Select>
+//         </div>
+//         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
+//         <h5>Recipe Results</h5>
+//         <Row>
+//           <Col size="col-md-3">
+//             <div  className="row text-center">{this.state.displayChild ? ( <SelectedRecipe
+//                recipeObj={this.state.recipeDetail} onChangeDisplay={this.changeDisplay}
+//               />
+//           ):(
+//             <Row>
+//               <div className="row text-center">
+//                 {this.state.recipes.length ? (
+//                   <div className="card">
+//                     {this.state.recipes.map(recipe => (
+//                       <div className="col-md-4" key={recipe.recipe.url}>
+//                         <RecipeCard 
+//                           image={recipe.recipe.image}
+//                           class="img-fluid"
+//                           key={recipe.recipe.url}
+//                         />
+//                         <Link to onClick={() => this.recipeDetail({
+//                           recipeYield:recipe.recipe.yield,
+//                           recipeTitle: recipe.recipe.label,
+//                           recipeLink: recipe.recipe.url,
+//                           recipeImage:recipe.recipe.image,
+//                           healthlabels:recipe.recipe.healthLabels,
+//                           dietlabels:recipe.recipe.dietLabels,
+//                           calories:recipe.recipe.calories})}>{recipe.recipe.label}</Link>
+//                        {/* <Link to={"/details/" + recipe.recipe.shareAs.split('/').slice(-2)[0]+ recipe.recipe.shareAs.split('/').slice(-3)[0]}>{recipe.recipe.label}</Link>*/}
+//                         {/* render buttons and pass props to them */}
+//                        {/*<button onClick={() => this.recipeDetail({
+//                            recipeTitle: recipe.recipe.label,
+//                            recipeLink: recipe.recipe.url,
+//                            recipeImage:recipe.recipe.image,
+//                            healthlabels:recipe.recipe.healthLabels,
+//                            dietlabels:recipe.recipe.dietLabels,
+//                        calories:recipe.recipe.calories})}>Click</button> */}
+//                       </div>
+//                     ))}
+//                   </div>
+//                 ) : (
+//                   <span role="img"  id= "notes" aria-label="Face With Rolling Eyes Emoji">
+//               🙄No Results to Display 
+//             </span>
+                 
+                   
+//                 )}
+//               </div>
+//             </Row>
+//             )}</div>
+//           </Col>
+//         </Row>
+
+//       </div>
+//     );
+//   }
+// }
 
 export default Main;

@@ -21,7 +21,7 @@ class SelectedRecipe extends Component {
       <div className="container" id="recipe-detail-container">
       <button className="btn btn-danger" style={{ float: "right" }} onClick={() => this.mainPage()}>Go Back</button>
         <div className="row justify-content-md-center">
-          <div className="col-6" id="recipe-detail-description">
+          <div className="col-8" id="recipe-detail-description">
             <h1 id="recipe-detail-title">{this.props.recipeObj.recipeTitle}</h1>
             <ul id="ingredient-list">{this.props.recipeObj.ingredient}</ul>
             <div>
