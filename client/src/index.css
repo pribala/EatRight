@@ -66,6 +66,19 @@ html, body, #root {
       max-width: 100%;
   }
 }
+.form-control{
+  border: 1px solid #BB1B89
+}
+.btn-success{
+  background-color: #BB1B89;
+}
+#selectedrecipe{
+  width:100%;
+  display: flex;
+}
+.text-center {
+  /* text-align: center!important; */
+}
   /* @media (min-width: 576px){
 
 .contimg{

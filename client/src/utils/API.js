@@ -22,9 +22,16 @@ export default {
   saveRecipes: function(recipeData) {
     return axios.post("/api/saved", recipeData);
   },
-  scrapeRecipe: function(url) {
-    console.log(url);
-    return axios.get(url,config);
-    
+  getComments: function() {
+    return axios.get("/api/comments");
+  },
+  // Gets the book with the given id
+  
+  // Deletes the book with the given id
+  deleteComment: function(id) {
+    return axios.delete("/api/comments/" + id);
+  },
+  saveComment: function(commentData) {
+    return axios.post("/api/comments", commentData);
   }
 };
