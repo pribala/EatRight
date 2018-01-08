@@ -1,0 +1,114 @@
+
+#recipe-detail-container {
+  max-width: 1200px;
+  height: auto;
+  margin-top: 3%;
+}
+
+#recipe-detail-description {
+
+}
+
+#recipe-detail-title {
+  font-family: 'Cardo', serif;
+  font-weight: 500;
+  font-size: 2em;
+  margin-bottom: 10px;
+  padding-right: 40px;
+}
+
+#save-recipe-button {
+  background-color: #515b6d;
+  display: inline-block;
+  width: 160px;
+  margin-top: 20px;
+  color: #FFF;
+  border-radius: 6px;
+  border-width: 0;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+}
+
+#save-recipe-button:active {
+  outline: none;
+  border: none;
+}
+
+#save-recipe-button:focus {
+  outline: none;
+}
+
+
+
+
+
+
+#recipe-detail-servings {
+  margin-top: 20px;
+  font-family: 'Cardo', serif;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+#recipe-detail-calories {
+  font-family: 'Cardo', serif;
+  font-weight: 500;
+  font-size: 1.3em;
+}
+
+#recipe-detail-source {
+  font-family: 'Cardo', serif;
+  font-weight: 500;
+  font-size: 1.3em;
+  /*text-decoration: underline;*/
+  margin-bottom: 40px;
+}
+
+#recipe-detail-image {
+  zoom: 2;
+
+}
+
+#ingredient-list li {
+  list-style: none;
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#nutrition-labels {
+  width: 100%;
+  height: 200px;
+  clear: both;
+  margin-bottom: 60px;
+}
+
+#nutrition-labels p {
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+#diet-labels {
+  float: left;
+  margin-right: 80px;
+}
+
+#diet-labels li {
+  list-style: none;
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#health-labels {
+  float: left;
+}
+
+#health-labels li {
+  list-style: none;
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+

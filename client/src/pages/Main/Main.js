@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn, Select } from "../../components/Form";
+import { Col, Row } from "../../components/Grid";
+//import { List, ListItem } from "../../components/List";
+import { Input, FormBtn, Select } from "../../components/Form";
 import RecipeCard from "../../components/RecipeCard";
+import SelectedRecipe from "../../components/SelectedRecipe";
 import Wrapper from "../../components/Wrapper";
-import Button from "../../components/Button";
+//import Button from "../../components/Button";
 class Main extends Component {
   state = {
     recipes: [],
@@ -16,7 +17,8 @@ class Main extends Component {
     selectValue: "",
     Allergies: "",
     Calories: "",
-    url:""
+    displayChild: false,
+    recipeDetail: {}
   };
 
   getRecipes = () => {
@@ -40,24 +42,13 @@ class Main extends Component {
           queryTerm: "",
           selectValue: "",
           Allergies: "",
-          Calories: ""
-          // endDate: ''
+          Calories: "",
+          singleRecipe: ""
         });
         console.log(this.state.recipes[0].recipe.label);
       })
       .catch(err => console.log(err));
-  };
-
-  // saveRecipes = recipeInfo => {
-  //   API.saveRecipes(recipeInfo)
-  //     .then(res => {
-  //       console.log("hey it saved");
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
-
+  }
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -88,26 +79,39 @@ class Main extends Component {
     this.getRecipes();
     // }
   };
-  urlhandler= id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    // const url = this.state.friends.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    // this.setState({ friends });
-    console.log(id);
-  };
   // Get value of button clicked
   // handleVote = event => {
   //   console.log(event.target);
   //   console.dir(event.target.attributes);
   //   alert("i am lykd");
   // };
+  recipeDetail = recipeInfo => {
+    this.setState({displayChild: true});
+    this.setState({recipeDetail: recipeInfo}, this.otherFunction)
+    console.log(this.state.recipeObj);
+
+  }
+
+// setState() does not immediately mutate this.state but creates a pending state transition. 
+// Accessing this.state after calling this method can potentially return the existing value.
+
+  otherFunction =()=> {
+    //console.log(this.state.recipeDetail);
+    console.log(this.state.displayChild);
+    
+  }
+
+  changeDisplay = (status) => {
+    this.setState({displayChild: status}, this.otherFunction);
+  }
   render() {
     return (
       <div>
-        <Jumbotron>
+        <Jumbotron >
           <h1>Search for a topic.</h1>
         </Jumbotron>
-        <div id="advanced-searchbar-input-group">
+       <br/>
+        <div id="advanced-searchbar-input-group" >
           <label
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
@@ -171,7 +175,7 @@ class Main extends Component {
             value={this.state.Calories}
             onChange={this.handleCalories}
           >
-            <option selected="selected" value=" " />
+            <option defaultValue="selected" value=" " />
             <option value="200">200</option>
             <option value="300">300</option>
             <option value="400">400</option>
@@ -180,187 +184,60 @@ class Main extends Component {
           </Select>
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
+        <h5>Recipe Results</h5>
         <Row>
           <Col size="col-md-3">
-            <h1>Recipe Results</h1>
+            <div  className="row text-center">{this.state.displayChild ? ( <SelectedRecipe
+               recipeObj={this.state.recipeDetail} onChangeDisplay={this.changeDisplay}
+              />
+          ):(
             <Row>
               <div className="row text-center">
                 {this.state.recipes.length ? (
-                  <div className="cards">
+                  <div className="card">
                     {this.state.recipes.map(recipe => (
-                      <div className="col-md-4">
-                        <RecipeCard
+                      <div className="col-md-4" key={recipe.recipe.url}>
+                        <RecipeCard 
                           image={recipe.recipe.image}
                           class="img-fluid"
                           key={recipe.recipe.url}
                         />
-                        <Link to={"/details/" + recipe.recipe.shareAs.split('/').slice(-2)[0]+ recipe.recipe.shareAs.split('/').slice(-3)[0]}>{recipe.recipe.label}</Link>
+                        <Link to onClick={() => this.recipeDetail({
+                          recipeYield:recipe.recipe.yield,
+                          recipeTitle: recipe.recipe.label,
+                          recipeLink: recipe.recipe.url,
+                          recipeImage:recipe.recipe.image,
+                          healthlabels:recipe.recipe.healthLabels,
+                          dietlabels:recipe.recipe.dietLabels,
+                          calories:recipe.recipe.calories})}>{recipe.recipe.label}</Link>
+                       {/* <Link to={"/details/" + recipe.recipe.shareAs.split('/').slice(-2)[0]+ recipe.recipe.shareAs.split('/').slice(-3)[0]}>{recipe.recipe.label}</Link>*/}
                         {/* render buttons and pass props to them */}
-
+                       {/*<button onClick={() => this.recipeDetail({
+                           recipeTitle: recipe.recipe.label,
+                           recipeLink: recipe.recipe.url,
+                           recipeImage:recipe.recipe.image,
+                           healthlabels:recipe.recipe.healthLabels,
+                           dietlabels:recipe.recipe.dietLabels,
+                       calories:recipe.recipe.calories})}>Click</button> */}
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <h3>No Results to Display</h3>
+                  <span role="img"  id= "notes" aria-label="Face With Rolling Eyes Emoji">
+              🙄No Results to Display 
+            </span>
+                 
+                   
                 )}
               </div>
             </Row>
+            )}</div>
           </Col>
         </Row>
+
       </div>
     );
   }
 }
 
 export default Main;
-// render() {
-//   return (
-//     <div>
-//     <Row>
-//       <Col size="md-12">
-//         <Jumbotron>
-//           <h1>Search for a topic.</h1>
-//         </Jumbotron>
-//         </Col>
-
-//         <Col size="md-12">
-
-//         <form >
-//        <Col size="md-4">
-//           <Input
-//             value={this.state.queryTerm}
-//             onChange={this.handleInputChange}
-//             name="queryTerm"
-//             placeholder="Topic (required)"
-//           />
-//           </Col>
-//           <Col size="md-4">
-//           <label>Diet</label>
-//           <select id="diet-label-drop-down"  value={this.state.selectValue} onChange={this.handleChange}>
-//           <option value=""></option>
-//           <option value="high-protein">high protein</option>
-//             <option value="high-fiber">high fibre</option>
-//             <option value="low-fat">low fat</option>
-//             <option value="low-carb">low carb</option>
-//             <option value="low-sodium">low sodium</option>
-//           </select>
-//           </Col>
-//           <Col size="md-4">
-//           <label>Allergies</label>
-//           <select id="allergies-label-drop-down"  value={this.state.Allergies} onChange={this.handleAllergies}>
-//           <option value=""></option>
-//           <option value="alcohol-free">Alcohol Free</option>
-//             <option value="dairy-free">Dairy Free</option>
-//             <option value="egg-free">Egg Free</option>
-//             <option value="gluten-free">Gluten Free</option>
-//             <option value="peanut-free">Peanut Free</option>
-//             <option value="low-sugar">Low Sugar</option>
-//             <option value="vegetarian">Vegetarian</option>
-//             <option value="soy-free">SoyFree</option>
-//             <option value="vegan">vegan</option>
-//           </select>
-//     </Col>
-//           <FormBtn
-
-//             onClick={this.handleFormSubmit}
-//           >
-//             Submit Search
-//           </FormBtn>
-//         </form>
-//       </Col>
-//       </Row>
-//       <Row>
-//       <Col size="col-md-3" >
-//             <h1>Recipe Results</h1>
-//         <Row>
-//         <div className="row text-center">
-//         {this.state.recipes.length ? (
-//         <div className="cards">
-//             {this.state.recipes.map(recipe => (
-//               <div className="col-md-3">
-//               <RecipeCard image={recipe.recipe.image} key={recipe.id}/>
-//               <a href={recipe.recipe.url} target="_blank"></a>
-//               <h5 id="recipe-detail-title">{recipe.recipe.label}</h5>
-//               {/* render buttons and pass props to them */}
-//               <Button handleClick={this.handleVote}  needsIcon={true} btnClass='btn-danger' onClick={() =>
-//                 this.likedRecipes({
-//                   recipeTitle: recipe.recipe.label
-//                 }) }  >
-//                 </Button>
-//               <button className="btn btn-primary" style={{ float: "right" }} onClick={() =>
-//                       this.saveRecipes({
-//                         recipeTitle: recipe.recipe.label,
-//                         recipeLink: recipe.recipe.url,
-//                         recipeImage:recipe.recipe.image,
-//                         healthlabels:recipe.recipe.healthLabels,
-//                         dietlabels:recipe.recipe.dietLabels,
-//                         calories:recipe.recipe.calories,
-//                         // date: recipe.pub_date
-//                       }) }  > Save recipe
-//                   </button>
-//             </div>
-
-//             ))}
-// </div>
-//         ) : (
-//           <h3>No Results to Display</h3>
-//         )}
-//         </div>
-//         </Row>
-//       </Col>
-//     </Row>
-//     </div>
-// );
-// }
-// }
-// <div id="recipe-detail-container" className="twelve columns">
-// <div id="recipe-detail-image" className="five columns">
-
-// <RecipeCard image={recipe.recipe.image} key={recipe.id}/>
-
-// <img src={recipe.recipe.image} alt="finished recipe" />
-// </div>
-// <div
-//     id="recipe-detail-description" className="five columns offset-by-one"   >
-//     <h3 id="recipe-detail-title">{recipe.recipe.label}</h3>
-//     <ul id="ingredient-list">
-//       {recipe.recipe.ingredientLines}
-//     </ul>
-//     <p id="recipe-detail-servings">
-//     Servings: {recipe.recipe.yield}
-//   </p>
-//   <p id="recipe-detail-calories">
-//     Calories per serving:{" "}
-//     {Math.round(recipe.recipe.calories / recipe.recipe.yield)}
-//   </p>
-//   <p id="recipe-detail-source">
-//     Source: {recipe.recipe.source}
-//   </p>
-//   <div id="nutrition-labels">
-//     <div id="diet-labels">
-//       <p>Diet Labels:</p>
-//       <ul>
-//         {recipe.recipe.dietLabels}
-//       </ul>
-//     </div>
-//     <button className="btn btn-primary" style={{ float: "right" }} onClick={() =>
-//       this.saveRecipes({
-//         recipeTitle: recipe.recipe.label,
-//         recipeLink: recipe.recipe.url,
-//         recipeImage:recipe.recipe.image,
-//         healthlabels:recipe.recipe.healthLabels,
-//         dietlabels:recipe.recipe.dietLabels,
-//         calories:recipe.recipe.calories,
-//         // date: recipe.pub_date
-//       }) }  > Save recipe
-//   </button>
-//     <div id="health-labels">
-//       <p>Health Labels:</p>
-//       <ul>
-//         {recipe.recipe.healthLabels}
-//       </ul>
-//     </div>
-//       <hr/>
-//   </div>
-//   </div>
-// </div>
