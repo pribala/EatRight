@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Col, Row, Container } from '../../components/Grid';
+//import { Link } from 'react-router-dom';
+import { Col, Row } from '../../components/Grid';
 import {List, ListItem} from '../../components/List';
-import Jumbotron from '../../components/Jumbotron';
+//import Jumbotron from '../../components/Jumbotron';
 import API from '../../utils/API';
 
 class Saved extends Component {
@@ -49,12 +49,7 @@ class Saved extends Component {
                     </a>
                     <br />
                     
-                    <button
-                      className="btn btn-danger"
-                      style={{ float: 'right' }}
-                      onClick={() => this.deleteRecipes(recipe._id)}>
-                      Delete Recipe
-                    </button>
+                   
                   </ListItem>
                 ))}
               </List>

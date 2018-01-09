@@ -9,17 +9,6 @@ html, body, #root {
   height: 100%;
   width: 100%;
 }
-/* body{padding-top: 50px;
- background: rgb(131, 175, 204);
-  background-image: url("https://static.vecteezy.com/system/resources/previews/000/110/453/non_2x/vector-grunge-texture-background.jpg");
-  height: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  padding-right: 400px;
-  padding-left:400px;
-  justify-content: space-around;
-  align-content: flex-start;
-  overflow: auto;} */
   .cards{
     justify-content: space-around;
     align-content: flex-start;
@@ -67,9 +56,32 @@ html, body, #root {
   #health-label-drop-down{
     margin-right: 12px;
   }
-  
+  #notes{
+    padding-left:60px;
+    padding-top: 20px;
+    font-size: 25px;  
+  }
   @media (min-width: 1200px){
   .container {
       max-width: 100%;
   }
 }
+.form-control{
+  border: 1px solid #BB1B89
+}
+.btn-success{
+  background-color: #BB1B89;
+}
+#selectedrecipe{
+  width:100%;
+  display: flex;
+}
+.text-center {
+  /* text-align: center!important; */
+}
+  /* @media (min-width: 576px){
+
+.contimg{
+    padding: 4rem 2rem;
+}
+  } */
