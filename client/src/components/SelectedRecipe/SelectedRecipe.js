@@ -1,49 +1,3 @@
-<<<<<<< HEAD
-// import React from "react";
-// import "./SelectedRecipe.css";
-// const SelectedRecipe = props => (
-//   <div className="contimg"  >
-//       <p>{props.recipeObj.recipeTitle}</p>
-//       <img  className="img-fluid" alt="recipe" src={props.recipeObj.recipeImage}/>
-//       <p>{props.recipeObj.healthlabels}</p>
-//       <p>{props.recipeObj.dietlabels}</p>
-//       <p>{props.recipeObj.calories}</p>
-//       <p>{props.recipeObj.recipeLink}</p>
-//       <button>Back</button>
-//   </div>
-
-// );
-
-// export default SelectedRecipe;
-
-import React, { Component } from "react";
-import "./SelectedRecipe.css";
-
-class SelectedRecipe extends Component{
-
-  mainPage = () => {
-  	this.props.onChangeDisplay(false);  
-  }
-  
-  render() {
-    return (
-        <div className="contimg"  >
-      <p>{this.props.recipeObj.recipeTitle}</p>
-      <img  className="img-fluid" alt="recipe" src={this.props.recipeObj.recipeImage}/>
-      <p>{this.props.recipeObj.healthlabels}</p>
-      <p>{this.props.recipeObj.dietlabels}</p>
-      <p>{this.props.recipeObj.calories}</p>
-      <p>{this.props.recipeObj.recipeLink}</p>
-      <button onClick={() => this.mainPage()}>Go Back</button>
- </div>
-    );
-  }
-}
-
-export default SelectedRecipe;
-
-
-=======
 import React, { Component } from "react";
 import "./SelectedRecipe.css";
 import API from "../../utils/API";
@@ -62,6 +16,7 @@ class SelectedRecipe extends Component {
   };
   componentDidMount() {
     this.loadComments();
+    console.log(this.props.recipeObj);
   }
   loadComments = () => {
     API.getComments()
@@ -117,7 +72,7 @@ class SelectedRecipe extends Component {
               </p>
             <div id="nutrition-labels">
               <div id="diet-labels">
-                <p>Diet-Labels: {this.props.recipeObj.dietlabels}</p>
+                <p>Diet-Labels: {this.props.recipeObj.dietLabels }</p>
               </div>
               <div id="health-labels">
                 <p>Health-Labels:</p>
@@ -125,12 +80,12 @@ class SelectedRecipe extends Component {
               </div>
               <div id="IngredientLines">
                 <p>Ingredients:</p>
-                <li>{this.props.recipeObj.ingredientLines}</li>
-                <li>{this.props.recipeObj.ingredients}</li>
+                 {this.props.recipeObj.recipeIngredients.map(recipe => (
+                  <li> { recipe}</li>))}
               </div>
-          </div>
-          <div>
-               <a href={this.props.recipeObj.recipeLink} target="_blank">Source:{this.props.recipeObj.recipeLink}</a>
+            </div>
+           <div>
+            <a href={this.props.recipeObj.recipeLink} target="_blank">Source:{this.props.recipeObj.recipeLink}</a>
                </div>
                <Container fluid> 
                <Row>
@@ -183,4 +138,4 @@ class SelectedRecipe extends Component {
   }
 }
 export default SelectedRecipe;
->>>>>>> fc3927efb242681efef02220198762e5243ebcbc
+

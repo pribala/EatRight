@@ -201,8 +201,7 @@ class Main extends Component {
                               className="img-fluid"
                               key={recipe.recipe.url}
                             />
-                            <Link
-                              to
+                            <Link to
                               onClick={() =>
                                 this.recipeDetail({
                                   recipeYield: recipe.recipe.yield,
