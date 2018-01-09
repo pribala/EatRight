@@ -49,12 +49,7 @@ class Saved extends Component {
                     </a>
                     <br />
                     
-                    <button
-                      className="btn btn-danger"
-                      style={{ float: 'right' }}
-                      onClick={() => this.deleteRecipes(recipe._id)}>
-                      Delete Recipe
-                    </button>
+                   
                   </ListItem>
                 ))}
               </List>

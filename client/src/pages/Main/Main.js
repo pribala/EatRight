@@ -49,17 +49,6 @@ class Main extends Component {
       })
       .catch(err => console.log(err));
   };
-
-  // saveRecipes = recipeInfo => {
-  //   API.saveRecipes(recipeInfo)
-  //     .then(res => {
-  //       console.log("hey it saved");
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -97,33 +86,35 @@ class Main extends Component {
   //   alert("i am lykd");
   // };
   recipeDetail = recipeInfo => {
-    this.setState({displayChild: true});
-    this.setState({recipeDetail: recipeInfo}, this.otherFunction)
-  }
+    this.setState({ displayChild: true });
+    this.setState({ recipeDetail: recipeInfo }, this.otherFunction);
+    console.log(this.state.recipeObj);
+  };
 
-// setState() does not immediately mutate this.state but creates a pending state transition. 
-// Accessing this.state after calling this method can potentially return the existing value.
+  // setState() does not immediately mutate this.state but creates a pending state transition.
+  // Accessing this.state after calling this method can potentially return the existing value.
 
-  otherFunction =()=> {
+  otherFunction = () => {
     //console.log(this.state.recipeDetail);
     console.log(this.state.displayChild);
-  }
+  };
 
-  changeDisplay = (status) => {
-    this.setState({displayChild: status}, this.otherFunction);
-  }
+  changeDisplay = status => {
+    this.setState({ displayChild: status }, this.otherFunction);
+  };
+
   render() {
     return (
       <div>
         <Jumbotron>
           <h1>Search for a topic.</h1>
         </Jumbotron>
+        <br />
         <div id="advanced-searchbar-input-group">
           <label
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
-          >
-            Name
+          > Name
           </label>
           <Input
             value={this.state.queryTerm}
@@ -182,7 +173,7 @@ class Main extends Component {
             value={this.state.Calories}
             onChange={this.handleCalories}
           >
-            <option selected="selected" value=" " />
+            <option defaultValue="selected" value=" " />
             <option value="200">200</option>
             <option value="300">300</option>
             <option value="400">400</option>
@@ -191,47 +182,60 @@ class Main extends Component {
           </Select>
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
-        <h1>Recipe Results</h1>
-        <Row>
+        <h3>Recipe Results</h3>
           <Col size="col-md-3">
-            <div  className="row text-center">{this.state.displayChild ? ( <SelectedRecipe
-               recipeObj={this.state.recipeDetail} onChangeDisplay={this.changeDisplay}
-              />
-          ):(
-            <Row>
-              <div className="row text-center">
-                {this.state.recipes.length ? (
-                  <div className="cards">
-                    {this.state.recipes.map(recipe => (
-                      <div className="col-md-4" key={recipe.recipe.url}>
-                        <RecipeCard
-                          image={recipe.recipe.image}
-                          class="img-fluid"
-                          key={recipe.recipe.url}
-                        />
-                        <Link to={"/details/" + recipe.recipe.shareAs.split('/').slice(-2)[0]+ recipe.recipe.shareAs.split('/').slice(-3)[0]}>{recipe.recipe.label}</Link>
-                        {/* render buttons and pass props to them */}
-                       <button onClick={() => this.recipeDetail({
-                           recipeTitle: recipe.recipe.label,
-                           recipeLink: recipe.recipe.url,
-                           recipeImage:recipe.recipe.image,
-                           healthlabels:recipe.recipe.healthLabels,
-                           dietlabels:recipe.recipe.dietLabels,
-                           calories:recipe.recipe.calories})}>Click</button> 
+              {this.state.displayChild ? (
+                <SelectedRecipe
+                  recipeObj={this.state.recipeDetail}
+                  onChangeDisplay={this.changeDisplay}
+                />
+              ) : (
+                <Row>
+                  <div className="row text-center">
+                    {this.state.recipes.length ? (
+                      <div className="cards">
+                        {this.state.recipes.map(recipe => (
+                          <div className="col-md-4" key={recipe.recipe.url}>
+                            <RecipeCard
+                              image={recipe.recipe.image}
+                              className="img-fluid"
+                              key={recipe.recipe.url}
+                            />
+                            <Link
+                              to
+                              onClick={() =>
+                                this.recipeDetail({
+                                  recipeYield: recipe.recipe.yield,
+                                  recipeTitle: recipe.recipe.label,
+                                  recipeLink: recipe.recipe.url,
+                                  recipeImage: recipe.recipe.image,
+                                  healthlabels: recipe.recipe.healthLabels,
+                                  dietlabels: recipe.recipe.dietLabels,
+                                  calories: recipe.recipe.calories,
+                                  recipeIngredients:recipe.recipe.ingredientLines,
+                                  recipeIngredient:recipe.recipe.ingredients,
+                                })
+                              } >
+                              {recipe.recipe.label}
+                            </Link>
+                            {/* render buttons and pass props to them */}
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    ) : (
+                      <span
+                        role="img"
+                        id="notes"
+                        aria-label="Face With Rolling Eyes Emoji"
+                      >
+                        🙄No Results to Display
+                      </span>
+                    )}
                   </div>
-                ) : (
-                  
-                    <h3>No Results to Display</h3>
-                   
-                )}
-              </div>
-            </Row>
-            )}</div>
+                </Row>
+              )}
+            
           </Col>
-        </Row>
-        
       </div>
     );
   }
