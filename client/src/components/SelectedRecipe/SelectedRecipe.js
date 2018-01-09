@@ -8,7 +8,8 @@ class SelectedRecipe extends Component{
 
   mainPage = () => {
   	console.log("Hello Back");
-  	console.log(super.props.state.displayChild);
+  	this.props.onChangeDisplay(false);  
+  	console.log(this.props.displayChile);
   }
   // state = {
   //   Selectedrecipes: []

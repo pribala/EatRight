@@ -108,6 +108,10 @@ class Main extends Component {
     console.log(this.state.recipeDetail);
     console.log(this.state.displayChild);
   }
+
+  changeDisplay = (status) => {
+    this.setState({displayChild: status}, this.otherFunction);
+  }
   render() {
     return (
       <div>
@@ -191,7 +195,7 @@ class Main extends Component {
         <Row>
           <Col size="col-md-3">
             <div  className="row text-center">{this.state.displayChild ? ( <SelectedRecipe
-               recipeObj={this.state.recipeDetail} 
+               recipeObj={this.state.recipeDetail} onChangeDisplay={this.changeDisplay}
               />
           ):(
             <Row>
