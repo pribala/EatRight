@@ -5,23 +5,25 @@ import API from "../../utils/API";
 //import { Link } from "react-router-dom";
 import { Col, Row ,Container} from "../../components/Grid";
 //import { List, ListItem } from "../../components/List";
-import { Input, FormBtn,TextArea } from "../../components/Form";
+import { Input, FormBtn,TextArea, Select } from "../../components/Form";
 //import RecipeCard from "../../components/RecipeCard";
 //import SelectedRecipe from "../../components/SelectedRecipe";
 // import Wrapper from "../../components/Wrapper";
 // import Button from "../../components/Button";
 class SelectedRecipe extends Component {
   state = {
-   comments: [],
+   author: "",
+   synopsis: "",
+   rating: ""
   };
   componentDidMount() {
     this.loadComments();
-    console.log(this.props.recipeObj);
+    //console.log(this.props.recipeObj);
   }
   loadComments = () => {
-    API.getComments()
-      .then(res => this.setState({ comments: res.data }))
-      .catch(err => console.log(err));
+    API.getComments("wsssa")
+      .then(res => console.log(res)
+        ).catch(err => console.log(err));
   };
   mainPage = () => {
     this.props.onChangeDisplay(false);
@@ -42,16 +44,39 @@ class SelectedRecipe extends Component {
         console.log(err);
       });
   };
-  saveComment = comment => {
-    console.log(comment)
-    API.saveComment(comment)
+  saveComment = event => {
+    event.preventDefault();
+    const comment= {
+      commentAuthor: this.state.author,
+      commentBody: this.state.synopsis,
+      rating: this.state.rating,
+      recipeUrl: this.props.recipeObj.recipeLink
+    };
+    console.log(comment);
+    API.saveComments(comment)
       .then(res => {
         console.log("hey it saved");
       })
       .catch(err => {
         console.log(err);
       });
+   };
+   handleAuthorChange = event => {
+    this.setState({
+      author: event.target.value
+    });
+    }
+     handleBodyChange = event => {
+    this.setState({
+      synopsis: event.target.value
+    });
+    }
+     handleRatingChange = event => {
+    this.setState({
+      rating: event.target.value
+    });
   };
+
   render() {
     return (
       <div id ="back">
@@ -90,20 +115,22 @@ class SelectedRecipe extends Component {
                <Container fluid> 
                <Row>
                  <Col size="md-12">      
-                   <form>
+                   
                    <h4>
                    Comments:
                  </h4>
-                     <Input name="author" placeholder="Author (required)" />
-                     <TextArea name="synopsis" placeholder="Synopsis (Optional)" />
-                     <FormBtn onClick={() =>
-                  this.saveComment({
-                    commentAuthor: this.props.author,
-                    commentBody: this.props.synopsis,
-                    rating: this.props.rating,
-                  })
-                }>Submit</FormBtn>
-                   </form>
+                     <Input name="author" value={this.state.value} onChange={this.handleAuthorChange} placeholder="Author (required)" />
+                     <TextArea name="synopsis" placeholder="Synopsis"  value={this.state.value} onChange={this.handleBodyChange} />
+                     <Select id="rating"  value={this.state.value} onChange={this.handleRatingChange}>
+                      <option value="" />
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </Select>
+                    <button onClick={this.saveComment}>Save Comment</button>
+                  
                  </Col>
                </Row>
              </Container>
@@ -131,6 +158,7 @@ class SelectedRecipe extends Component {
               >
    </button>     
           </div>
+
       </div>
     
       </div>

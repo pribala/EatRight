@@ -20,16 +20,16 @@ export default {
   saveRecipes: function(recipeData) {
     return axios.post("/api/saved", recipeData);
   },
-  getComments: function() {
-    return axios.get("/api/comments");
+  getComments: function(id) {
+    return axios.get("/api/saved/comments/" + id);
   },
   // Gets the book with the given id
   
   // Deletes the book with the given id
   deleteComment: function(id) {
-    return axios.delete("/api/comments/" + id);
+    return axios.delete("/api/saved/comments/" + id);
   },
-  saveComment: function(commentData) {
-    return axios.post("/api/comments", commentData);
+  saveComments: function(commentData) {
+    return axios.post("/api/saved/comments", commentData);
   }
 };

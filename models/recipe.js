@@ -39,14 +39,14 @@ calories: {
   	type: Date,
   	required: false,
   	default: Date.now  
-  },
+  }
   // `comment` is an object that stores a comment id
   // The ref property links the ObjectId to the Comment model
   // This allows us to populate the Recipe with an associated Comment
-  comment: [{
-    type: Schema.Types.ObjectId,
-    ref: "Comment"
-  }]
+  // comment: [{
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Comment"
+  // }]
 });
 
 // This creates our model from the above schema, using mongoose's model method
