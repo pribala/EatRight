@@ -14,16 +14,20 @@ class SelectedRecipe extends Component {
   state = {
    author: "",
    synopsis: "",
-   rating: ""
+   rating: "",
+   comments: []
   };
   componentDidMount() {
     this.loadComments();
-    //console.log(this.props.recipeObj);
   }
   loadComments = () => {
-    API.getComments("wsssa")
-      .then(res => console.log(res)
-        ).catch(err => console.log(err));
+    API.getComments(this.props.recipeObj.recipeLink.substr(this.props.recipeObj.recipeLink.lastIndexOf('/') + 1))
+      .then(res => {
+        console.log(res); 
+        this.setState({
+          comments: res.data
+      });
+    }).catch(err => console.log(err));
   };
   mainPage = () => {
     this.props.onChangeDisplay(false);
@@ -50,7 +54,7 @@ class SelectedRecipe extends Component {
       commentAuthor: this.state.author,
       commentBody: this.state.synopsis,
       rating: this.state.rating,
-      recipeUrl: this.props.recipeObj.recipeLink
+      recipeUrl: this.props.recipeObj.recipeLink.substr(this.props.recipeObj.recipeLink.lastIndexOf('/') + 1)
     };
     console.log(comment);
     API.saveComments(comment)
@@ -156,9 +160,11 @@ class SelectedRecipe extends Component {
                   })
                 }
               >
-   </button>     
+   </button>   
+    {this.state.comments.map(comment => (
+                  <li> { comment.commentAuthor} { comment.commentBody } { comment.rating } {comment.commentDate}</li>))}  
           </div>
-
+       
       </div>
     
       </div>

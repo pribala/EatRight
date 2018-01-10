@@ -21,8 +21,7 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Comments
-      .find("commentAuthor":req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .find({recipeUrl:req.params.id}).select("-_id").then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
