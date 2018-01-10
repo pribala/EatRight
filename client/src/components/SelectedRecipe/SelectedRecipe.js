@@ -14,14 +14,14 @@ class SelectedRecipe extends Component {
   state = {
    comments: [],
   };
-  componentDidMount() {
-    this.loadComments();
-  }
-  loadComments = () => {
-    API.getComments()
-      .then(res => this.setState({ comments: res.data }))
-      .catch(err => console.log(err));
-  };
+  // componentDidMount() {
+  //   this.loadComments();
+  // }
+  // loadComments = () => {
+  //   API.getComments()
+  //     .then(res => this.setState({ comments: res.data }))
+  //     .catch(err => console.log(err));
+  // };
   mainPage = () => {
     this.props.onChangeDisplay(false);
   };
@@ -41,16 +41,16 @@ class SelectedRecipe extends Component {
         console.log(err);
       });
   };
-  saveComment = comment => {
-    console.log(comment)
-    API.saveComment(comment)
-      .then(res => {
-        console.log("hey it saved");
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  // saveComments = comment => {
+  //   console.log(comment)
+  //   API.saveComment(comment)
+  //     .then(res => {
+  //       console.log("hey it saved");
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // };
   render() {
     return (
       <div id ="back">
@@ -95,13 +95,13 @@ class SelectedRecipe extends Component {
                  </h4>
                      <Input name="author" placeholder="Author (required)" />
                      <TextArea name="synopsis" placeholder="Synopsis (Optional)" />
-                     <FormBtn onClick={() =>
+                     <button onClick={() =>    
                   this.saveComment({
                     commentAuthor: this.props.author,
                     commentBody: this.props.synopsis,
                     rating: this.props.rating,
                   })
-                }>Submit</FormBtn>
+                }>Submit</button>
                    </form>
                  </Col>
                </Row>

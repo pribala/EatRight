@@ -26,6 +26,10 @@ const CommentSchema = new Schema({
     type: Number,
   	required: false,
   	default: Date.now 
+  },
+  recipeUrl:{
+    type: String,
+  	required: true
   }
 
 });

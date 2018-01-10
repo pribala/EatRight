@@ -106,7 +106,7 @@ class Main extends Component {
     return (
       <div>
         <Jumbotron>
-          <h1>Search for a topic.</h1>
+          
         </Jumbotron>
         <br />
         <div id="advanced-searchbar-input-group">

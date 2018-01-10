@@ -9,6 +9,15 @@ const queryUrlBase = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${A
 const config = {
   headers: {'Access-Control-Allow-Origin': '*'}
 };
+// let getComments= function() {
+//   return axios.get("/");
+// }
+// let deleteComment= function(id) {
+//   return axios.delete("/" + id);
+// }
+// let saveComment= function(commentData) {
+//   return axios.post("/", commentData);
+// }
 export default {
   recipeSearch: function(queryTerms) {
     return axios.get(`${queryUrlBase}${queryTerms}`);
@@ -21,17 +30,6 @@ export default {
   },
   saveRecipes: function(recipeData) {
     return axios.post("/api/saved", recipeData);
-  },
-  getComments: function() {
-    return axios.get("/api/comments");
-  },
-  // Gets the book with the given id
-  
-  // Deletes the book with the given id
-  deleteComment: function(id) {
-    return axios.delete("/api/comments/" + id);
-  },
-  saveComment: function(commentData) {
-    return axios.post("/api/comments", commentData);
   }
+
 };
