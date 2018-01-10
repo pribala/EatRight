@@ -39,7 +39,7 @@ calories: {
   	type: Date,
   	required: false,
   	default: Date.now  
-  },
+  }
   // `comment` is an object that stores a comment id
   // The ref property links the ObjectId to the Comment model
   // This allows us to populate the Recipe with an associated Comment

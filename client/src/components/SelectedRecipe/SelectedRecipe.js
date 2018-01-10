@@ -5,23 +5,30 @@ import API from "../../utils/API";
 //import { Link } from "react-router-dom";
 import { Col, Row ,Container} from "../../components/Grid";
 //import { List, ListItem } from "../../components/List";
-import { Input, FormBtn,TextArea } from "../../components/Form";
+import { Input, FormBtn,TextArea, Select } from "../../components/Form";
 //import RecipeCard from "../../components/RecipeCard";
 //import SelectedRecipe from "../../components/SelectedRecipe";
 // import Wrapper from "../../components/Wrapper";
 // import Button from "../../components/Button";
 class SelectedRecipe extends Component {
   state = {
-   comments: [],
+   author: "",
+   synopsis: "",
+   rating: "",
+   comments: []
   };
-  // componentDidMount() {
-  //   this.loadComments();
-  // }
-  // loadComments = () => {
-  //   API.getComments()
-  //     .then(res => this.setState({ comments: res.data }))
-  //     .catch(err => console.log(err));
-  // };
+  componentDidMount() {
+    this.loadComments();
+  }
+  loadComments = () => {
+    API.getComments(this.props.recipeObj.recipeLink.substr(this.props.recipeObj.recipeLink.lastIndexOf('/') + 1))
+      .then(res => {
+        console.log(res); 
+        this.setState({
+          comments: res.data
+      });
+    }).catch(err => console.log(err));
+  };
   mainPage = () => {
     this.props.onChangeDisplay(false);
   };
@@ -41,16 +48,39 @@ class SelectedRecipe extends Component {
         console.log(err);
       });
   };
-  // saveComments = comment => {
-  //   console.log(comment)
-  //   API.saveComment(comment)
-  //     .then(res => {
-  //       console.log("hey it saved");
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // };
+  saveComment = event => {
+    event.preventDefault();
+    const comment= {
+      commentAuthor: this.state.author,
+      commentBody: this.state.synopsis,
+      rating: this.state.rating,
+      recipeUrl: this.props.recipeObj.recipeLink.substr(this.props.recipeObj.recipeLink.lastIndexOf('/') + 1)
+    };
+    console.log(comment);
+    API.saveComments(comment)
+      .then(res => {
+        console.log("hey it saved");
+      })
+      .catch(err => {
+        console.log(err);
+      });
+   };
+   handleAuthorChange = event => {
+    this.setState({
+      author: event.target.value
+    });
+    }
+     handleBodyChange = event => {
+    this.setState({
+      synopsis: event.target.value
+    });
+    }
+     handleRatingChange = event => {
+    this.setState({
+      rating: event.target.value
+    });
+  };
+
   render() {
     return (
       <div id ="back">
@@ -71,7 +101,7 @@ class SelectedRecipe extends Component {
               </p>
             <div id="nutrition-labels">
               <div id="diet-labels">
-                <p>Diet-Labels: {this.props.recipeObj.dietlabels}</p>
+                <p>Diet-Labels: {this.props.recipeObj.dietLabels }</p>
               </div>
               <div id="health-labels">
                 <p>Health-Labels:</p>
@@ -79,20 +109,21 @@ class SelectedRecipe extends Component {
               </div>
               <div id="IngredientLines">
                 <p>Ingredients:</p>
-                <li>{this.props.recipeObj.ingredientLines}</li>
-                <li>{this.props.recipeObj.ingredients}</li>
+                 {this.props.recipeObj.recipeIngredients.map(recipe => (
+                  <li> { recipe}</li>))}
               </div>
-          </div>
-          <div>
-               <a href={this.props.recipeObj.recipeLink} target="_blank">Source:{this.props.recipeObj.recipeLink}</a>
+            </div>
+           <div>
+            <a href={this.props.recipeObj.recipeLink} target="_blank">Source:{this.props.recipeObj.recipeLink}</a>
                </div>
                <Container fluid> 
                <Row>
                  <Col size="md-12">      
-                   <form>
+                   
                    <h4>
                    Comments:
                  </h4>
+<<<<<<< HEAD
                      <Input name="author" placeholder="Author (required)" />
                      <TextArea name="synopsis" placeholder="Synopsis (Optional)" />
                      <button onClick={() =>    
@@ -103,6 +134,20 @@ class SelectedRecipe extends Component {
                   })
                 }>Submit</button>
                    </form>
+=======
+                     <Input name="author" value={this.state.value} onChange={this.handleAuthorChange} placeholder="Author (required)" />
+                     <TextArea name="synopsis" placeholder="Synopsis"  value={this.state.value} onChange={this.handleBodyChange} />
+                     <Select id="rating"  value={this.state.value} onChange={this.handleRatingChange}>
+                      <option value="" />
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </Select>
+                    <button onClick={this.saveComment}>Save Comment</button>
+                  
+>>>>>>> f24a7bd8e53b0a0b6507a6dc7010f0c24d08d90b
                  </Col>
                </Row>
              </Container>
@@ -128,8 +173,11 @@ class SelectedRecipe extends Component {
                   })
                 }
               >
-   </button>     
+   </button>   
+    {this.state.comments.map(comment => (
+                  <li> { comment.commentAuthor} { comment.commentBody } { comment.rating } {comment.commentDate}</li>))}  
           </div>
+       
       </div>
     
       </div>
@@ -137,3 +185,4 @@ class SelectedRecipe extends Component {
   }
 }
 export default SelectedRecipe;
+

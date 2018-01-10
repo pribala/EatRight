@@ -30,6 +30,21 @@ export default {
   },
   saveRecipes: function(recipeData) {
     return axios.post("/api/saved", recipeData);
+<<<<<<< HEAD
+=======
+  },
+  getComments: function(id) {
+    return axios.get("/api/saved/comments/" + id);
+  },
+  // Gets the book with the given id
+  
+  // Deletes the book with the given id
+  deleteComment: function(id) {
+    return axios.delete("/api/saved/comments/" + id);
+  },
+  saveComments: function(commentData) {
+    return axios.post("/api/saved/comments", commentData);
+>>>>>>> f24a7bd8e53b0a0b6507a6dc7010f0c24d08d90b
   }
 
 };
