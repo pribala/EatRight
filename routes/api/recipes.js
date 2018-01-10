@@ -14,6 +14,14 @@ router
   .get(recipesController.findById)
   // .get(commentsController.findAll)
   .put(recipesController.update)
-  .delete(recipesController.remove);
-  
-module.exports = router;
+  .delete(recipesController.remove)
+  // .get(commentsController.findAll)
+router
+  .route('/comments')
+  .post(commentsController.create);
+router
+  .route('/comments/:id')
+  .get(commentsController.findById)
+  .put(commentsController.update)
+  .delete(commentsController.remove);
+  module.exports = router;

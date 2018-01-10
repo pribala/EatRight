@@ -14,18 +14,21 @@ const CommentSchema = new Schema({
   },
   commentDate:{
     type: Date,
-  	required: false,
-  	default: Date.now 
+    required: false,
+    default: Date.now 
   },
   commentBody:{
     type: String,
-  	required: false,
-  	default: Date.now 
+    required: false,
+    default: Date.now 
   },
   rating:{
-    type: Number,
-  	required: false,
-  	default: Date.now 
+    type: String,
+    required: false,
+  },
+  recipeUrl: {
+    type: String,
+    required: false
   }
 
 });
