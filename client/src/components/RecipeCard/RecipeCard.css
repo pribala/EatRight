@@ -1,0 +1,17 @@
+
+.img-fluid   {
+  background-size: cover;
+  background-position: 50%;
+  height: 300px;
+  width: 300px;
+  margin: 2px;
+  border: 10px solid transparent;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  cursor: pointer;
+  background-color: rgb(245, 245, 248);
+}
+/* .contimg{
+ padding-left: 25px;
+} */

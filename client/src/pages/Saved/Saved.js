@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Col, Row, Container } from '../../components/Grid';
+//import { Link } from 'react-router-dom';
+import { Col, Row } from '../../components/Grid';
 import {List, ListItem} from '../../components/List';
-import Jumbotron from '../../components/Jumbotron';
+//import Jumbotron from '../../components/Jumbotron';
 import API from '../../utils/API';
 
 class Saved extends Component {
@@ -36,25 +36,29 @@ class Saved extends Component {
   render() {
     return (
         <Row>
-          <Col size="md-12">
+          <Col id="saved" size="md-12">
             {this.state.recipes.length ? (
               <List>
                 {this.state.recipes.map(recipe=> (
                   <ListItem key={recipe.id}>
-                  <div id="recipe-detail-image" className="five columns">
+                  <a href={recipe.recipeLink} target="_blank">
+                  <strong>{recipe.recipeTitle}</strong>
+                  </a>
+                  <div id="recipeimage" className="five columns">
                   <img src={recipe.recipeImage} alt="finished recipe" />
+                  <strong >Dietlabels:{recipe.dietlabels}</strong>
+               <br />
+                
                 </div>
-                    <a href={recipe.recipeLink} target="_blank">
-                    <strong>{recipe.recipeTitle}</strong>
-                    </a>
-                    <br />
-                    
+                   
+                    <br />   
                     <button
-                      className="btn btn-danger"
-                      style={{ float: 'right' }}
-                      onClick={() => this.deleteRecipes(recipe._id)}>
-                      Delete Recipe
-                    </button>
+                    className="btn btn-danger"
+                    style={{ float: 'right' }}
+                    onClick={() => this.deleteRecipes(recipe._id)}
+                  >
+                    Delete Article
+                  </button>
                   </ListItem>
                 ))}
               </List>

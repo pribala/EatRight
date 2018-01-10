@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html, body, #root {
+  padding: 100;
+  margin: 100;
+  height: 100%;
+  width: 100%;
+}
+  .cards{
+    justify-content: space-around;
+    align-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+  } 
+  element.style{
+    width:auto;
+  }
+  #searchbar {
+    width: 100%;
+    height: 60px;
+    padding-top: 30px;
+    background-color: #96a3ba;
+  }
+  
+  #advanced-searchbar {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #advanced-searchbar-input-group {
+   display: inline-flex;
+    margin-left: 2%;
+    /* display: flex; */
+    flex-flow: row wrap; 
+    /* justify-content: space-around; */
+    /* align-content: flex-start; */
+  }
+  
+  #advanced-search-input {
+    margin-right: 6px;
+    width: 100px;
+  }
+  
+  .searchbar-input-labels {
+    margin-left: 12px;
+    padding-right: 8px;
+  }
+  
+  #diet-label-drop-down{
+    margin-right: 12px;
+  }
+  
+  #health-label-drop-down{
+    margin-right: 12px;
+  }
+  #notes{
+    padding-left:60px;
+    padding-top: 20px;
+    font-size: 25px;  
+  }
+  @media (min-width: 1200px){
+  .container {
+      max-width: 100%;
+  }
+}
+.form-control{
+  border: 1px solid #BB1B89
+}
+.btn-success{
+  background-color: #BB1B89;
+}
+#selectedrecipe{
+  width:100%;
+  display: flex;
+}
+.text-center {
+  /* text-align: center!important; */
+}
+  /* @media (min-width: 576px){
+
+.contimg{
+    padding: 4rem 2rem;
+}
+  } */
+  li{ 
+      list-style-type: none;
+  }
+  .card{
+    border:1px solid rgb(187, 27, 137);
+  }
+  hr{
+    border:1px solid rgb(187, 27, 137);
+  }
+  #saved{
+    height: 100%;
+    width:100%
+  }
+  .list-overflow-container{
+  max-height: 100%;
+  }

@@ -6,11 +6,7 @@ const Schema = mongoose.Schema;
 // Using the Schema constructor, create a new CommentSchema object
 const CommentSchema = new Schema({
   // `title` is of type String
-  commentTitle:{
-    type: String,
-    required: true,
-    unique: true
-  },
+
   commentAuthor:{
     type: String,
     required: true,
@@ -27,9 +23,12 @@ const CommentSchema = new Schema({
   	default: Date.now 
   },
   rating:{
-    type: Number,
+    type: String,
   	required: false,
-  	default: Date.now 
+  },
+  recipeUrl:{
+    type: String,
+  	required: true
   }
 
 });
