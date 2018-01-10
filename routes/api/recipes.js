@@ -17,10 +17,6 @@ router
   // .get(commentsController.findAll)
   .put(recipesController.update)
   .delete(recipesController.remove)
-<<<<<<< HEAD
-  .get(commentsController.findById)
-  // .get(commentsController.findAll)
-=======
   // .get(commentsController.findAll)
 router
   .route('/comments')
@@ -28,7 +24,6 @@ router
 router
   .route('/comments/:id')
   .get(commentsController.findById)
->>>>>>> f24a7bd8e53b0a0b6507a6dc7010f0c24d08d90b
   .put(commentsController.update)
   .delete(commentsController.remove);
 module.exports = router;
