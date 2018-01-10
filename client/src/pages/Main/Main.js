@@ -110,7 +110,7 @@ class Main extends Component {
           
         </Jumbotron>
         <br />
-        <div id="advanced-searchbar-input-group">
+        <div className="col-sm-12" id="advanced-searchbar-input-group">
           <label
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
@@ -183,7 +183,7 @@ class Main extends Component {
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
         <h3>Recipe Results</h3>
-          <Col size="col-md-3">
+          <Col size="col-md-3 col-sm-1">
               {this.state.displayChild ? (
                 <SelectedRecipe
                   recipeObj={this.state.recipeDetail}

@@ -30,8 +30,6 @@ export default {
   },
   saveRecipes: function(recipeData) {
     return axios.post("/api/saved", recipeData);
-<<<<<<< HEAD
-=======
   },
   getComments: function(id) {
     return axios.get("/api/saved/comments/" + id);
@@ -44,7 +42,6 @@ export default {
   },
   saveComments: function(commentData) {
     return axios.post("/api/saved/comments", commentData);
->>>>>>> f24a7bd8e53b0a0b6507a6dc7010f0c24d08d90b
   }
 
 };

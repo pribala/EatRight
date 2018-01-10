@@ -85,3 +85,19 @@ html, body, #root {
     padding: 4rem 2rem;
 }
   } */
+  li{ 
+      list-style-type: none;
+  }
+  .card{
+    border:1px solid rgb(187, 27, 137);
+  }
+  hr{
+    border:1px solid rgb(187, 27, 137);
+  }
+  #saved{
+    height: 100%;
+    width:100%
+  }
+  .list-overflow-container{
+  max-height: 100%;
+  }
