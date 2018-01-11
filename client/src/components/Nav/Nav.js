@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./nav.css";
 
 const Nav = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    <Link className="navbar-brand" to="/">
-     Chef'sBook
+     <nav className="navbar navbar-expand-lg navbar-dark bg-clr">	
+       <Link className="navbar-brand fnt" to="/">
+    Chef'sBook		
+        <i class="fa fa-cutlery" aria-hidden="true"></i> Chef's Book <i class="fa fa-cutlery" aria-hidden="true"></i>
     </Link>
     <button
       className="navbar-toggler"

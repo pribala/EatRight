@@ -151,3 +151,6 @@ select.form-control:not([size]):not([multiple]) {
 #comment{
     text-align: initial
 }
+i.fa fa-cutlery{
+    color:whitesmoke;
+}
