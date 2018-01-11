@@ -20,7 +20,6 @@ const CommentSchema = new Schema({
   commentBody:{
     type: String,
   	required: false,
-  	default: Date.now 
   },
   rating:{
     type: String,
@@ -28,7 +27,7 @@ const CommentSchema = new Schema({
   },
   recipeUrl:{
     type: String,
-  	required: true
+  	required: false
   }
 
 });
