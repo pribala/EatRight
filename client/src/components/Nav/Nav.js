@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Nav = () => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-clr">
     <Link className="navbar-brand fnt" to="/">
-     Chef's Book <i className="fa fa-4x icon-food sz"></i>
+     <i class="fa fa-cutlery" aria-hidden="true"></i> Chef's Book <i class="fa fa-cutlery" aria-hidden="true"></i>
      </Link>
     <button
       className="navbar-toggler"
