@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Col, Row } from "../../components/Grid";
 //import { List, ListItem } from "../../components/List";
 import { Input, FormBtn, Select } from "../../components/Form";
@@ -201,7 +201,7 @@ class Main extends Component {
                               className="img-fluid"
                               key={recipe.recipe.url}
                             />
-                            <Link to
+                            <div 
                               onClick={() =>
                                 this.recipeDetail({
                                   recipeYield: recipe.recipe.yield,
@@ -216,7 +216,7 @@ class Main extends Component {
                                 })
                               } >
                               {recipe.recipe.label}
-                            </Link>
+                            </div>
                             {/* render buttons and pass props to them */}
                           </div>
                         ))}

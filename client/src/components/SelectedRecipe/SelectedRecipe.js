@@ -5,7 +5,7 @@ import API from "../../utils/API";
 //import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 //import { List, ListItem } from "../../components/List";
-import { Input, FormBtn, TextArea, Select } from "../../components/Form";
+import { Input, TextArea, Select } from "../../components/Form";
 //import RecipeCard from "../../components/RecipeCard";
 //import SelectedRecipe from "../../components/SelectedRecipe";
 // import Wrapper from "../../components/Wrapper";
@@ -17,17 +17,18 @@ class SelectedRecipe extends Component {
     author: "",
     synopsis: "",
     rating: "",
-    comments: []
+    comments: [],
   };
   componentDidMount() {
     this.loadComments();
   }
   loadComments = () => {
-    API.getComments(
-      this.props.recipeObj.recipeLink.substr(
-        this.props.recipeObj.recipeLink.lastIndexOf("/") + 1
-      )
-    )
+    let urlStr = this.props.recipeObj.recipeLink.substr(this.props.recipeObj.recipeLink.lastIndexOf("/") + 1);
+    if(urlStr.length === 0) {
+      urlStr = this.props.recipeObj.recipeLink.split('/').reverse()[1];
+    }
+    console.log(urlStr);
+    API.getComments(urlStr)
       .then(res => {
         console.log(res);
         this.setState({
@@ -63,12 +64,17 @@ class SelectedRecipe extends Component {
       rating: this.state.rating,
       recipeUrl: this.props.recipeObj.recipeLink.substr(
         this.props.recipeObj.recipeLink.lastIndexOf("/") + 1
-      )
+      ).length > 0 ? this.props.recipeObj.recipeLink.substr(
+        this.props.recipeObj.recipeLink.lastIndexOf("/") + 1
+      ) : this.props.recipeObj.recipeLink.split('/').reverse()[1]
     };
     console.log(comment);
     API.saveComments(comment)
       .then(res => {
         console.log("hey it saved");
+       console.log(this.props.recipeObj.recipeLink.substr(
+        this.props.recipeObj.recipeLink.lastIndexOf("/") + 1));
+       this.loadComments();
       })
       .catch(err => {
         console.log(err);
@@ -124,8 +130,8 @@ class SelectedRecipe extends Component {
               </div>
               <div id="IngredientLines">
                 <p>Ingredients:</p>
-                {this.props.recipeObj.recipeIngredients.map(recipe => (
-                  <li> {recipe}</li>
+                {this.props.recipeObj.recipeIngredients.map((recipe, index) => (
+                  <li key={index}> {recipe}</li>
                 ))}
               </div>
               <div>
@@ -137,17 +143,17 @@ class SelectedRecipe extends Component {
             <br/>
             <div>
               <Container fluid>
-              <h3 id="comment">View Comments</h3>
-                <div class="card">
-                  <ul class="list-group list-group-flush">
-                    {this.state.comments.map(comment => (
-                      <li id="commentid">
-                        <h5><i class="fa fa-user-circle" aria-hidden="true"></i>
+              <h3>View Comments</h3>
+                <div className="card">
+                  <ul className="list-group list-group-flush">
+                    {this.state.comments.map((comment, index) => (
+                      <li key={index}>
+                        <h5 ><i className="fa fa-user-circle" aria-hidden="true"></i>
                        {""} {comment.commentAuthor} 
                         <Moment format="YYYY/MM/DD" style={{float:"right"}}>{comment.commentDate}</Moment>
                         </h5>
-                        <strong >{comment.commentBody}
-                        <h6 style={{float:"right"}}><i class="fa fa-star fa-1x" aria-hidden="true"></i>
+                        <strong>{comment.commentBody}
+                        <h6 style={{float:"right"}}><i className="fa fa-star fa-1x" aria-hidden="true"></i>
                         {""} {comment.rating}</h6>
                         </strong>
                         <hr/>  
