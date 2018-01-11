@@ -182,7 +182,6 @@ class Main extends Component {
           </Select>
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
-        <h3>Recipe Results</h3>
           <Col size="col-md-3">
               {this.state.displayChild ? (
                 <SelectedRecipe
