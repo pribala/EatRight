@@ -45,8 +45,10 @@ html, body, #root {
   }
   
   .searchbar-input-labels {
-    margin-left: 12px;
+    margin-left: 15px;
     padding-right: 8px;
+    padding-top: 6px;
+    font-weight: bold;
   }
   
   #diet-label-drop-down{
@@ -70,7 +72,7 @@ html, body, #root {
   border: 1px solid #BB1B89
 }
 .btn-success{
-  background-color: #BB1B89;
+  background-color: green;
 }
 #selectedrecipe{
   width:100%;
