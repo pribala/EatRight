@@ -142,3 +142,12 @@ input:active {
 select.form-control:not([size]):not([multiple]) {
     height: auto;
 }
+#commentid{
+    text-align: initial;
+    padding-right:50px;
+    padding-left:50px;
+
+}
+#comment{
+    text-align: initial
+}

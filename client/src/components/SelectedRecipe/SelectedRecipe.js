@@ -101,7 +101,8 @@ class SelectedRecipe extends Component {
           <i className="fa fa-backward" aria-hidden="true" />
         </button>
         <div id="selectedrecipe">
-          <div className="col-md-8 col-sm-6" id="recipe-detail-description">
+          <div className="col-md-8 col-sm-6" >
+          <div id="recipe-detail-description">
             <h1 id="recipe-detail-title">{this.props.recipeObj.recipeTitle}</h1>
             <ul id="ingredient-list">{this.props.recipeObj.ingredient}</ul>
             <strong id="recipe-detail-servings">
@@ -132,19 +133,20 @@ class SelectedRecipe extends Component {
               Source:{this.props.recipeObj.recipeLink}
             </a>
             </div>
+            </div>
             <br/>
             <div>
               <Container fluid>
-              <h3>View Comments</h3>
+              <h3 id="comment">View Comments</h3>
                 <div class="card">
                   <ul class="list-group list-group-flush">
                     {this.state.comments.map(comment => (
-                      <li>
-                        <h5 ><i class="fa fa-user-circle" aria-hidden="true"></i>
+                      <li id="commentid">
+                        <h5><i class="fa fa-user-circle" aria-hidden="true"></i>
                        {""} {comment.commentAuthor} 
                         <Moment format="YYYY/MM/DD" style={{float:"right"}}>{comment.commentDate}</Moment>
                         </h5>
-                        <strong>{comment.commentBody}
+                        <strong >{comment.commentBody}
                         <h6 style={{float:"right"}}><i class="fa fa-star fa-1x" aria-hidden="true"></i>
                         {""} {comment.rating}</h6>
                         </strong>
