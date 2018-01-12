@@ -45,8 +45,10 @@ html, body, #root {
   }
   
   .searchbar-input-labels {
-    margin-left: 12px;
-    padding-right: 8px;
+  margin-left: 15px;
+  padding-right: 8px;		  
+   padding-top: 6px;
+   font-weight: bold;
   }
   
   #diet-label-drop-down{
@@ -69,9 +71,10 @@ html, body, #root {
 .form-control{
   border: 1px solid #BB1B89
 }
+
 .btn-success{
-  background-color: #BB1B89;
-}
+   	 background-color: green;
+   }		 
 #selectedrecipe{
   width:100%;
   display: flex;
@@ -79,8 +82,12 @@ html, body, #root {
 .text-center {
   /* text-align: center!important; */
 }
+#savedimg{
+  max-height:550px;
+  /* width: 30%; */
+  margin :0px auto;
+}
   /* @media (min-width: 576px){
-
 .contimg{
     padding: 4rem 2rem;
 }
@@ -100,4 +107,8 @@ html, body, #root {
   }
   .list-overflow-container{
   max-height: 100%;
+  }
+  h1{
+    font-weight: 800;
+    font-size: 2.5rem
   }

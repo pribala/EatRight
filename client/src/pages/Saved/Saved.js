@@ -32,24 +32,25 @@ class Saved extends Component {
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
-
+ 
   render() {
     return (
         <Row>
-          <Col id="saved" size="md-12">
+          <Col id="saved" size="offset-md-3">
             {this.state.recipes.length ? (
+           
               <List>
                 {this.state.recipes.map(recipe=> (
                   <ListItem key={recipe.id}>
-                  <a href={recipe.recipeLink} target="_blank">
-                  <strong>{recipe.recipeTitle}</strong>
-                  </a>
-                  <div id="recipeimage" className="five columns">
-                  <img src={recipe.recipeImage} alt="finished recipe" />
-                  <strong >Dietlabels:{recipe.dietlabels}</strong>
-               <br />
+                  <div className="card" size="offset-md-4">
+                  <img id ="savedimg" className="card-img-top" src={recipe.recipeImage} alt="Card image"/>
+                  <div className="card-body">
+                    <h5 className="card-title"><a href={recipe.recipeLink} target="_blank">{recipe.recipeTitle}</a></h5>
+                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   </div>
+                </div>  
                 
-                </div>
+
                    
                     <br />   
                     <button

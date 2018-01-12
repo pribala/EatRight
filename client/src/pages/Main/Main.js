@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-//import { Link } from "react-router-dom";
 import { Col, Row } from "../../components/Grid";
-//import { List, ListItem } from "../../components/List";
 import { Input, FormBtn, Select } from "../../components/Form";
 import RecipeCard from "../../components/RecipeCard";
 import SelectedRecipe from "../../components/SelectedRecipe";
-//import Wrapper from "../../components/Wrapper";
-//import Button from "../../components/Button";
 class Main extends Component {
   state = {
     recipes: [],
@@ -18,9 +14,25 @@ class Main extends Component {
     Allergies: "",
     Calories: "",
     displayChild: false,
-    recipeDetail: {}
+    recipeDetail: {},
+    savedPage: true
   };
-
+  componentDidMount() {
+       this.loadSavedRecipes();
+     }
+    
+      loadSavedRecipes = () => {
+        API.getSavedRecipes()
+          .then(res => {
+            console.log(res.data);
+            this.setState({
+              recipes: res.data
+            })
+          })
+         .catch(err => {
+            console.log(err);
+          });
+      }
   getRecipes = () => {
     let query = `${this.state.queryTerm}`;
     // console.log(this.state.selectValue)
@@ -75,16 +87,12 @@ class Main extends Component {
   };
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.queryTerm) {
+    this.setState({recipes:""})
+    this.setState({savedPage: false});
     this.getRecipes();
-    // }
+ 
   };
-  // Get value of button clicked
-  // handleVote = event => {
-  //   console.log(event.target);
-  //   console.dir(event.target.attributes);
-  //   alert("i am lykd");
-  // };
+
   recipeDetail = recipeInfo => {
     this.setState({ displayChild: true });
     this.setState({ recipeDetail: recipeInfo }, this.otherFunction);
@@ -107,7 +115,7 @@ class Main extends Component {
     return (
       <div>
         <Jumbotron>
-          
+          <h1 >Search for a Recipe</h1>
         </Jumbotron>
         <br />
         <div className="col-sm-12" id="advanced-searchbar-input-group">
@@ -182,7 +190,34 @@ class Main extends Component {
           </Select>
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
-        <h3>Recipe Results</h3>
+        <h1>Recipes</h1>
+        {this.state.savedPage ? (<Row>
+                        <div className="row text-center">
+                              {this.state.recipes.length ? (
+                               <div className="cards">
+                               {this.state.recipes.map(recipe => (
+                                  <div className="col-md-4" key={recipe._id}>
+                                     <RecipeCard
+                                       image={recipe.recipeImage}
+                                        className="img-fluid"
+                                        key={recipe.recipeLink}
+                                      />
+                                      
+                                      {/* render buttons and pass props to them */}
+                                    </div>
+                                  ))}
+                                </div>
+                              ) : (
+                                <span
+                                  role="img"
+                                  id="notes"
+                                  aria-label="Face With Rolling Eyes Emoji"
+                                >
+                                  🙄No Results to Display
+                                </span>
+                              )}
+                            </div>
+                          </Row>) : (
           <Col size="col-md-3 col-sm-1">
               {this.state.displayChild ? (
                 <SelectedRecipe
@@ -235,9 +270,9 @@ class Main extends Component {
               )}
             
           </Col>
+        )}
       </div>
     );
   }
 }
-
 export default Main;

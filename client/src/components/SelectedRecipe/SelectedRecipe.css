@@ -95,7 +95,8 @@ li{
     padding-left: 0;
     font-size: 20px
 }
-p{
+p
+{
     
 }
 .text-center {
@@ -141,4 +142,20 @@ input:active {
 }
 select.form-control:not([size]):not([multiple]) {
     height: auto;
+}
+#commentid{
+    text-align: initial;
+    padding-right:50px;
+    padding-left:50px;
+    padding-top:10px;
+    padding-bottom:10px;
+    border:1px solid #BB1B89
+
+}
+
+#comment{
+    text-align: initial
+}
+i.fa fa-cutlery{
+    color:whitesmoke;
 }
