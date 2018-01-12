@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import "./SelectedRecipe.css";
 import API from "../../utils/API";
-//import Jumbotron from "../../components/Jumbotron";
-//import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-//import { List, ListItem } from "../../components/List";
 import { Input, TextArea, Select } from "../../components/Form";
-//import RecipeCard from "../../components/RecipeCard";
-//import SelectedRecipe from "../../components/SelectedRecipe";
-// import Wrapper from "../../components/Wrapper";
-// import Button from "../../components/Button";
 import Moment from 'react-moment';
 
 class SelectedRecipe extends Component {
@@ -27,7 +20,6 @@ class SelectedRecipe extends Component {
     if(urlStr.length === 0) {
       urlStr = this.props.recipeObj.recipeLink.split('/').reverse()[1];
     }
-    console.log(urlStr);
     API.getComments(urlStr)
       .then(res => {
         console.log(res);
@@ -37,15 +29,16 @@ class SelectedRecipe extends Component {
       })
       .catch(err => console.log(err));
   };
+  
   mainPage = () => {
     this.props.onChangeDisplay(false);
   };
+  
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.queryTerm) {
     this.getComments();
-    // }
   };
+  
   saveRecipes = recipeInfo => {
     console.log(recipeInfo);
     API.saveRecipes(recipeInfo)
@@ -56,6 +49,7 @@ class SelectedRecipe extends Component {
         console.log(err);
       });
   };
+  
   saveComment = event => {
     event.preventDefault();
     const comment = {
@@ -80,16 +74,19 @@ class SelectedRecipe extends Component {
         console.log(err);
       });
   };
+  
   handleAuthorChange = event => {
     this.setState({
       author: event.target.value
     });
   };
+  
   handleBodyChange = event => {
     this.setState({
       synopsis: event.target.value
     });
   };
+  
   handleRatingChange = event => {
     this.setState({
       rating: event.target.value
@@ -104,7 +101,7 @@ class SelectedRecipe extends Component {
           style={{ float: "right" }}
           onClick={() => this.mainPage()}
         >
-          <i className="fa fa-backward" aria-hidden="true" />
+        <i className="fa fa-backward" aria-hidden="true" />
         </button>
         <div id="selectedrecipe">
           <div className="col-md-8 col-sm-6" id="recipe-detail-description">
