@@ -3,9 +3,11 @@
     height: auto;
     margin-top: 3%;
 }
+
 #recipe-detail-description {
-text-align: center
+    text-align: center
 }
+
 #recipe-detail-title {
     font-family: 'Cardo', serif;
     font-weight: 500;
@@ -13,6 +15,7 @@ text-align: center
     margin-bottom: 10px;
     padding-right: 40px;
 }
+
 #save-recipe-button {
     background-color: #515b6d;
     display: inline-block;
@@ -25,24 +28,29 @@ text-align: center
     border-color: none;
     border-image: none;
 }
+
 #save-recipe-button:active {
     outline: none;
     border: none;
 }
+
 #save-recipe-button:focus {
     outline: none;
 }
+
 #recipe-detail-servings {
     margin-top: 20px;
     font-family: 'Cardo', serif;
     font-weight: 500;
     font-size: 1.7em;
 }
+
 #recipe-detail-calories {
     font-family: 'Cardo', serif;
     font-weight: 500;
     font-size: 1.7em;
 }
+
 #recipe-detail-source {
     font-family: 'Cardo', serif;
     font-weight: 500;
@@ -50,10 +58,12 @@ text-align: center
     /*text-decoration: underline;*/
     margin-bottom: 40px;
 }
+
 #recipe-detail-image {
     zoom: 2;
     float: right;
 }
+
 #ingredient-list li {
     list-style: none;
     text-align: left;
@@ -61,46 +71,52 @@ text-align: center
     font-size: 1.7em;
     padding-left: 0;
 }
-li{
+
+li {
     font-size: 1.2em;
 }
+
 #nutrition-labels {
     width: 100%;
     height: auto;
     clear: both;
     margin-bottom: 60px;
 }
+
 #nutrition-labels p {
     font-family: 'Cardo', serif;
     font-weight: 500;
     font-size: 1.5em;
 }
-#diet-labels {
 
+#diet-labels {
     /* margin-right: 100px; */
 }
+
 #diet-labels li {
     list-style: none;
     text-align: left;
     margin-left: 0;
     padding-left: 0;
-    
 }
+
 #health-labels {
     /* float: left; */
 }
+
 #health-labels li {
     text-align: center;
     margin-left: 0;
     padding-left: 0;
     font-size: 20px
 }
-p{
-    
-}
+
+p {}
+
 .text-center {
- text-align: center!important;
+    text-align: center!important;
 }
+
 *:focus,
 *:active,
 button:active,
@@ -111,6 +127,7 @@ input:active {
     outline: none;
     outline: 0;
 }
+
 .heart {
     width: 100px;
     height: 100px;
@@ -123,11 +140,13 @@ input:active {
     cursor: pointer;
     animation: fave-heart 1s steps(28);
 }
+
 .heart:hover {
     background-position: -2000px -10px;
     transition: background 1s steps(28);
     border: none;
 }
+
 @keyframes fave-heart {
     0% {
         background-position: 0 0;
@@ -136,21 +155,28 @@ input:active {
         background-position: -2800px 0;
     }
 }
-#IngredientLines{
-    overflow:hidden
+
+#IngredientLines {
+    overflow: hidden
 }
+
 select.form-control:not([size]):not([multiple]) {
     height: auto;
 }
-#commentid{
-    text-align: initial;
-    padding-right:50px;
-    padding-left:50px;
 
+#commentid {
+    text-align: initial;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #BB1B89
 }
-#comment{
+
+#comment {
     text-align: initial
 }
-i.fa fa-cutlery{
-    color:whitesmoke;
+
+i.fa fa-cutlery {
+    color: whitesmoke;
 }

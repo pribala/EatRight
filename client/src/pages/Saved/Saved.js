@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
 import { Col, Row } from '../../components/Grid';
 import {List, ListItem} from '../../components/List';
-//import Jumbotron from '../../components/Jumbotron';
 import API from '../../utils/API';
 
 class Saved extends Component {
@@ -32,25 +30,22 @@ class Saved extends Component {
       .then(res => this.loadRecipes())
       .catch(err => console.log(err));
   };
-
+ 
   render() {
     return (
         <Row>
           <Col id="saved" size="md-12">
-            {this.state.recipes.length ? (
+            {this.state.recipes.length ? (          
               <List>
                 {this.state.recipes.map(recipe=> (
                   <ListItem key={recipe.id}>
-                  <a href={recipe.recipeLink} target="_blank">
-                  <strong>{recipe.recipeTitle}</strong>
-                  </a>
-                  <div id="recipeimage" className="five columns">
-                  <img src={recipe.recipeImage} alt="finished recipe" />
-                  <strong >Dietlabels:{recipe.dietlabels}</strong>
-               <br />
-                
-                </div>
-                   
+                  <div className="card" size="md-12">
+                  <img id ="savedimg" className="card-img-top" src={recipe.recipeImage} alt="Card image"/>
+                  <div className="card-body">
+                    <h5 className="card-title"><a href={recipe.recipeLink} target="_blank">{recipe.recipeTitle}</a></h5>
+                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   </div>
+                </div>  
                     <br />   
                     <button
                     className="btn btn-danger"

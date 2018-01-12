@@ -1,12 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import "./nav.css";
-
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Nav.css";
 const Nav = () => (
-     <nav className="navbar navbar-expand-lg navbar-dark bg-clr">	
-       <Link className="navbar-brand fnt" to="/">
-    Chef'sBook		
-        <i class="fa fa-cutlery" aria-hidden="true"></i> Chef's Book <i class="fa fa-cutlery" aria-hidden="true"></i>
+  <nav className="navbar navbar-expand-lg bg-clr">
+    <Link className="navbar-brand fnt" to="/">
+      Chef's Book
+      <i className="fa fa-cutlery" aria-hidden="true" />
     </Link>
     <button
       className="navbar-toggler"

@@ -1,106 +1,137 @@
 * {
-  box-sizing: border-box;
-  font-family: sans-serif;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-html, body, #root {
-  padding: 100;
-  margin: 100;
-  height: 100%;
-  width: 100%;
+html,
+body,
+#root {
+    padding: 100;
+    margin: 100;
+    height: 100%;
+    width: 100%;
 }
-  .cards{
+
+.cards {
     justify-content: space-around;
     align-content: flex-start;
     display: flex;
     flex-flow: row wrap;
-  } 
-  element.style{
-    width:auto;
-  }
-  #searchbar {
+}
+
+element.style {
+    width: auto;
+}
+
+#searchbar {
     width: 100%;
     height: 60px;
     padding-top: 30px;
     background-color: #96a3ba;
-  }
-  
-  #advanced-searchbar {
+}
+
+#advanced-searchbar {
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  #advanced-searchbar-input-group {
-   display: inline-flex;
+}
+
+#advanced-searchbar-input-group {
+    display: inline-flex;
     margin-left: 2%;
     /* display: flex; */
-    flex-flow: row wrap; 
+    flex-flow: row wrap;
     /* justify-content: space-around; */
     /* align-content: flex-start; */
-  }
-  
-  #advanced-search-input {
+}
+
+#advanced-search-input {
     margin-right: 6px;
     width: 100px;
-  }
-  
-  .searchbar-input-labels {
-    margin-left: 50px;
-     padding-right: 8px;		  
-   padding-top: 6px;
-   font-weight: bold;
-  }
-  
-  #diet-label-drop-down{
+}
+
+.searchbar-input-labels {
+    margin-left: 15px;
+    padding-right: 8px;
+    padding-top: 6px;
+    font-weight: bold;
+}
+
+#diet-label-drop-down {
     margin-right: 12px;
-  }
-  
-  #health-label-drop-down{
+}
+
+#health-label-drop-down {
     margin-right: 12px;
-  }
-  #notes{
-    padding-left:60px;
+}
+
+#notes {
+    padding-left: 60px;
     padding-top: 20px;
-    font-size: 25px;  
-  }
-  @media (min-width: 1200px){
-  .container {
-      max-width: 100%;
-  }
-}
-.form-control{
-  border: 1px solid #BB1B89
+    font-size: 25px;
 }
 
-.btn-success{
-   	 background-color: green;
-   }		 
-#selectedrecipe{
-  width:100%;
-  display: flex;
+@media (min-width: 1200px) {
+    .container {
+        max-width: 100%;
+    }
 }
+
+.form-control {
+    border: 1px solid #BB1B89
+}
+
+.btn-success {
+    background-color: green;
+}
+
+#selectedrecipe {
+    width: 100%;
+    display: flex;
+}
+
 .text-center {
-  /* text-align: center!important; */
+    /* text-align: center!important; */
 }
-  /* @media (min-width: 576px){
 
-.contimg{
-    padding: 4rem 2rem;
+#savedimg {
+    max-height: 350px;
+    width: 100%;
+    margin: 0px auto;
+    background: cover;
+    border: 1px solid #BB1B89;
 }
-  } */
-  li{ 
-      list-style-type: none;
-  }
-  .card{
-    border:1px solid rgb(187, 27, 137);
-  }
-  hr{
-    border:1px solid rgb(187, 27, 137);
-  }
-  #saved{
+
+.img-fluid {
+    height: 400px;
+    width: 400px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.card {
+    border: 1px solid rgb(187, 27, 137);
+}
+
+hr {
+    border: 1px solid rgb(187, 27, 137);
+}
+
+#saved {
     height: 100%;
-    width:100%
-  }
-  .list-overflow-container{
-  max-height: 100%;
-  }
+    width: 100%
+}
+
+.list-overflow-container {
+    max-height: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 2.5rem
+}
+
+li.list-group-item {
+    padding: 15px;
+}

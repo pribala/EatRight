@@ -1,20 +1,10 @@
 .jumbotron {
-    margin-bottom: 0px;
-    background-image: url(http://knoxpa.com/wp-content/uploads/2017/12/recipes-header-image.jpg);
-    background-position: 0% 19%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: green;
-    text-shadow: black 0.3em 0.3em 0.3em;
-    text-align: center;
-    height: 300px
-}
-
-
-/* http://mommyfood.com/images/xsearch.png.pagespeed.ic.INJxDadgAt.png */
-
-
-/* http://lovebirdrestaurant.com/wp-content/uploads/2016/08/receipt.png */
-
-
-/* http://3.bp.blogspot.com/-C7rS0xQyClE/T9jWT4eg_NI/AAAAAAAAARE/BDGpZyhkEwc/s1600/Recipe+Logo+copy.jpg */
+  margin-bottom: 0px;
+  background-image: url(http://knoxpa.com/wp-content/uploads/2017/12/recipes-header-image.jpg);
+  background-position: 0% 19%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: green;
+  text-align: center;
+  /*text-shadow: black 0.3em 0.3em 0.3em;*/
+ }
