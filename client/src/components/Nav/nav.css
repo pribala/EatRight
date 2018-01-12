@@ -1,0 +1,18 @@
+bg-clr {
+    background-color: green;
+}
+
+.fnt {
+    font-family: 'Russo One', sans-serif;
+    color: white;
+}
+
+.sz {
+    color: white;
+}
+nav{
+    background-color: green;
+}
+a.nav-link{
+    color: white;
+}
