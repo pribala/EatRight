@@ -117,21 +117,17 @@ li {
 hr {
     border: 1px solid rgb(187, 27, 137);
 }
-
 #saved {
     height: 100%;
     width: 100%
 }
-
 .list-overflow-container {
     max-height: 100%;
 }
-
 h1 {
     font-weight: 800;
     font-size: 2.5rem
 }
-
 li.list-group-item {
     padding: 15px;
 }
