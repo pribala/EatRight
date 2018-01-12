@@ -26,12 +26,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findByRating: function(req, res) {
-  //   db.Recipes
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
   update: function(req, res) {
     db.Recipes
       .findOneAndUpdate({ _id: req.params.id }, req.body)

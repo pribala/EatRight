@@ -18,21 +18,21 @@ class Main extends Component {
     savedPage: true
   };
   componentDidMount() {
-       this.loadSavedRecipes();
-     }
-    
-      loadSavedRecipes = () => {
-        API.getSavedRecipes()
-          .then(res => {
-            console.log(res.data);
-            this.setState({
-              recipes: res.data
-            })
-          })
-         .catch(err => {
-            console.log(err);
-          });
-      }
+    this.loadSavedRecipes();
+  }
+
+  loadSavedRecipes = () => {
+    API.getSavedRecipes()
+      .then(res => {
+        console.log(res.data);
+        this.setState({
+          recipes: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   getRecipes = () => {
     let query = `${this.state.queryTerm}`;
     // console.log(this.state.selectValue)
@@ -87,10 +87,9 @@ class Main extends Component {
   };
   handleFormSubmit = event => {
     event.preventDefault();
-    this.setState({recipes:""})
-    this.setState({savedPage: false});
+    this.setState({ recipes: "" });
+    this.setState({ savedPage: false });
     this.getRecipes();
- 
   };
 
   recipeDetail = recipeInfo => {
@@ -115,14 +114,16 @@ class Main extends Component {
     return (
       <div>
         <Jumbotron>
-          <h1 >Search for a Recipe</h1>
+          <h1>Search for a Recipe</h1>
         </Jumbotron>
         <br />
         <div className="col-sm-12" id="advanced-searchbar-input-group">
           <label
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
-          > Name
+          >
+            {" "}
+            Name
           </label>
           <Input
             value={this.state.queryTerm}
@@ -191,87 +192,90 @@ class Main extends Component {
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
         <h1>Recipes</h1>
-        {this.state.savedPage ? (<Row>
-                        <div className="row text-center">
-                              {this.state.recipes.length ? (
-                               <div className="cards">                              
-                               {this.state.recipes.map(recipe => (                             
-                                  <div className="col-md-4" key={recipe._id}>                 
-                                     <RecipeCard
-                                       image={recipe.recipeImage}
-                                        className="img-fluid"
-                                        key={recipe.recipeLink}
-                                      />
-                                      <a href={recipe.recipeLink} target="_blank">
-                                      <strong>{recipe.recipeTitle}</strong>
-                                    </a>
-                                      
-                                      {/* render buttons and pass props to them */}
-                                    </div>
-                                  ))}
-                                </div>
-                              ) : (
-                                <span
-                                  role="img"
-                                  id="notes"
-                                  aria-label="Face With Rolling Eyes Emoji"
-                                >
-                                  🙄No Results to Display
-                                </span>
-                              )}
-                            </div>
-                          </Row>) : (
-          <Col size="col-md-3 col-sm-1">
-              {this.state.displayChild ? (
-                <SelectedRecipe
-                  recipeObj={this.state.recipeDetail}
-                  onChangeDisplay={this.changeDisplay}
-                />
+        {this.state.savedPage ? (
+          <Row>
+            <div className="row text-center">
+              {this.state.recipes.length ? (
+                <div className="cards">
+                  {this.state.recipes.map(recipe => (
+                    <div className="col-md-4" key={recipe._id}>
+                      <RecipeCard
+                        image={recipe.recipeImage}
+                        className="img-fluid"
+                        key={recipe.recipeLink}
+                      />
+                      <a href={recipe.recipeLink} target="_blank">
+                        <strong>{recipe.recipeTitle}</strong>
+                      </a>
+
+                      {/* render buttons and pass props to them */}
+                    </div>
+                  ))}
+                </div>
               ) : (
-                <Row>
-                  <div className="row text-center">
-                    {this.state.recipes.length ? (
-                      <div className="cards">
-                        {this.state.recipes.map(recipe => (
-                          <div className="col-md-4" key={recipe.recipe.url}>
-                            <RecipeCard
-                              image={recipe.recipe.image}
-                              className="img-fluid"
-                              key={recipe.recipe.url}
-                            />
-                            <div 
-                              onClick={() =>
-                                this.recipeDetail({
-                                  recipeYield: recipe.recipe.yield,
-                                  recipeTitle: recipe.recipe.label,
-                                  recipeLink: recipe.recipe.url,
-                                  recipeImage: recipe.recipe.image,
-                                  healthlabels: recipe.recipe.healthLabels,
-                                  dietlabels: recipe.recipe.dietLabels,
-                                  calories: recipe.recipe.calories,
-                                  recipeIngredients:recipe.recipe.ingredientLines,
-                                  recipeIngredient:recipe.recipe.ingredients,
-                                })
-                              } >
-                              {recipe.recipe.label}
-                            </div>
-                            {/* render buttons and pass props to them */}
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <span
-                        role="img"
-                        id="notes"
-                        aria-label="Face With Rolling Eyes Emoji"
-                      >
-                        🙄No Results to Display
-                      </span>
-                    )}
-                  </div>
-                </Row>
+                <span
+                  role="img"
+                  id="notes"
+                  aria-label="Face With Rolling Eyes Emoji"
+                >
+                  🙄No Results to Display
+                </span>
               )}
-            
+            </div>
+          </Row>
+        ) : (
+          <Col size="col-md-3 col-sm-1">
+            {this.state.displayChild ? (
+              <SelectedRecipe
+                recipeObj={this.state.recipeDetail}
+                onChangeDisplay={this.changeDisplay}
+              />
+            ) : (
+              <Row>
+                <div className="row text-center">
+                  {this.state.recipes.length ? (
+                    <div className="cards">
+                      {this.state.recipes.map(recipe => (
+                        <div className="col-md-4" key={recipe.recipe.url}>
+                          <RecipeCard
+                            image={recipe.recipe.image}
+                            className="img-fluid"
+                            key={recipe.recipe.url}
+                          />
+                          <div
+                            onClick={() =>
+                              this.recipeDetail({
+                                recipeYield: recipe.recipe.yield,
+                                recipeTitle: recipe.recipe.label,
+                                recipeLink: recipe.recipe.url,
+                                recipeImage: recipe.recipe.image,
+                                healthlabels: recipe.recipe.healthLabels,
+                                dietlabels: recipe.recipe.dietLabels,
+                                calories: recipe.recipe.calories,
+                                recipeIngredients:
+                                  recipe.recipe.ingredientLines,
+                                recipeIngredient: recipe.recipe.ingredients
+                              })
+                            }
+                          >
+                            {recipe.recipe.label}
+                          </div>
+                          {/* render buttons and pass props to them */}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <span
+                      role="img"
+                      id="notes"
+                      aria-label="Face With Rolling Eyes Emoji"
+                    >
+                      🙄No Results to Display
+                    </span>
+                  )}
+                </div>
+              </Row>
+            )}
           </Col>
         )}
       </div>

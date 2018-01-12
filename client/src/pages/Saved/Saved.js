@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
 import { Col, Row } from '../../components/Grid';
 import {List, ListItem} from '../../components/List';
-//import Jumbotron from '../../components/Jumbotron';
 import API from '../../utils/API';
 
 class Saved extends Component {

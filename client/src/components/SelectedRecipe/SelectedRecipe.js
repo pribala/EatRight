@@ -143,9 +143,9 @@ class SelectedRecipe extends Component {
                 </div>
               </div>
               <br />
-            </div>  
-          </div>         
-         <div className="col-md-4 col-sm-6" id="recipe-detail-image">
+            </div>
+          </div>
+          <div className="col-md-4 col-sm-6" id="recipe-detail-image">
             <img
               className="recipeimage"
               src={this.props.recipeObj.recipeImage}
@@ -169,80 +169,72 @@ class SelectedRecipe extends Component {
           </div>
         </div>
         <div className="offset-md-1 ">
-        <Container>
-          <Row>
+          <Container>
+            <Row>
+              <Col size="md-10">
+                <h3 id="comment">Comments:</h3>
+                <Select
+                  id="rating"
+                  value={this.state.value}
+                  onChange={this.handleRatingChange}
+                >
+                  <option value="">Give Rating</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </Select>
+                <Input
+                  name="author"
+                  value={this.state.value}
+                  onChange={this.handleAuthorChange}
+                  placeholder="Author (required)"
+                />
+                <TextArea
+                  name="synopsis"
+                  placeholder="Synopsis"
+                  value={this.state.value}
+                  onChange={this.handleBodyChange}
+                />
+                <button
+                  className="btn-btn-primary"
+                  onClick={this.saveComment}
+                  style={{ float: "right" }}
+                >
+                  Save Comment
+                </button>
+                <br />
+              </Col>
+            </Row>
+          </Container>
+          <Container>
+            <h3 id="comment">View Comments</h3>
+
             <Col size="md-10">
-              <h3 id="comment">Comments:</h3>
-              <Select
-                id="rating"
-                value={this.state.value}
-                onChange={this.handleRatingChange}
-              >
-                <option value="">Give Rating</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </Select>
-              <Input
-                name="author"
-                value={this.state.value}
-                onChange={this.handleAuthorChange}
-                placeholder="Author (required)"
-              />
-              <TextArea
-                name="synopsis"
-                placeholder="Synopsis"
-                value={this.state.value}
-                onChange={this.handleBodyChange}
-              />
-              <button
-                className="btn-btn-primary"
-                onClick={this.saveComment}
-                style={{ float: "right" }}
-              >
-                Save Comment
-              </button>
-              <br />
+              <ul className="list-group list-group-flush">
+                {this.state.comments.map((comment, index) => (
+                  <li id="commentid" key={index}>
+                    <h5>
+                      <i className="fa fa-user-circle" aria-hidden="true" />
+                      {""} {comment.commentAuthor}
+                      <Moment format="YYYY/MM/DD" style={{ float: "right" }}>
+                        {comment.commentDate}
+                      </Moment>
+                    </h5>
+                    <strong>
+                      {comment.commentBody}
+                      <h6 style={{ float: "right" }}>
+                        <i className="fa fa-star fa-1x" aria-hidden="true" />
+                        {""} {comment.rating}
+                      </h6>
+                    </strong>
+                  </li>
+                ))}
+              </ul>
             </Col>
-          </Row>
-        </Container>
-        <Container >
-          <h3 id="comment">View Comments</h3>
-        
-          <Col  size="md-10">
-            <ul className="list-group list-group-flush">
-              {this.state.comments.map((comment, index) => (
-                <li id="commentid" key={index}>
-                  <h5>
-                    <i className="fa fa-user-circle" aria-hidden="true" />
-                    {""} {comment.commentAuthor}
-                    <Moment
-                      format="YYYY/MM/DD"
-                      style={{ float: "right" }}
-                    >
-                      {comment.commentDate}
-                    </Moment>
-                  </h5>
-                  <strong>
-                    {comment.commentBody}
-                    <h6 style={{ float: "right" }}>
-                      <i
-                        className="fa fa-star fa-1x"
-                        aria-hidden="true"
-                      />
-                      {""} {comment.rating}
-                    </h6>
-                  </strong>        
-                </li>
-              ))}
-            </ul>
-          
-            </Col>
-         
-        </Container>
-      </div>
+          </Container>
+        </div>
       </div>
     );
   }
