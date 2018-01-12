@@ -37,7 +37,7 @@ element.style {
 
 #advanced-searchbar-input-group {
     display: inline-flex;
-    margin-left: 2%;
+   /* margin-left: 2%; */
     /* display: flex; */
     flex-flow: row wrap;
     /* justify-content: space-around; */
@@ -47,18 +47,18 @@ element.style {
 #advanced-search-input {
     margin-right: 6px;
     width: 100px;
-<<<<<<< HEAD
   }
   
   .searchbar-input-labels {
-    margin-left: 50px;
     padding-right: 8px;
     padding-top: 6px;
     font-weight: bold;
   }
+  .lbt-setting{
+     padding-left: 80px;
+  }
   
   #diet-label-drop-down{
-=======
 }
 
 .searchbar-input-labels {
@@ -69,7 +69,6 @@ element.style {
 }
 
 #diet-label-drop-down {
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
     margin-right: 12px;
 }
 
@@ -88,14 +87,11 @@ element.style {
         max-width: 100%;
     }
 }
-<<<<<<< HEAD
 .btn-success{
   background-color: green;
-=======
-
+}
 .form-control {
     border: 1px solid #BB1B89
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
 }
 
 .btn-success {

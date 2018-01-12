@@ -1,6 +1,5 @@
 
 .img-fluid   {
-<<<<<<< HEAD
   background-size: cover;
   background-position: 50%;
   height: 300px;
@@ -12,7 +11,6 @@
   box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
   cursor: pointer;
   background-color: rgb(245, 245, 248);
-=======
  background-size: cover;
  background-position: 50%;
  height: 300px;
@@ -24,7 +22,6 @@
  box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
  cursor: pointer;
  background-color: rgb(245, 245, 248);
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
 }
 .recipeimage{
     height: 90%;

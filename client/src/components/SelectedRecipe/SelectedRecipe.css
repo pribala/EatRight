@@ -154,9 +154,6 @@ input:active {
     100% {
         background-position: -2800px 0;
     }
-<<<<<<< HEAD
-}
-=======
 }
 
 #IngredientLines {
@@ -183,4 +180,3 @@ select.form-control:not([size]):not([multiple]) {
 i.fa fa-cutlery {
     color: whitesmoke;
 }
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53

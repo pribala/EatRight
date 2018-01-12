@@ -117,7 +117,7 @@ class Main extends Component {
           <h1>Search for a Recipe</h1>
         </Jumbotron>
         <br />
-        <div className="col-sm-12" id="advanced-searchbar-input-group">
+        <div className="col-sm-10" id="advanced-searchbar-input-group">
           <label
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
@@ -133,7 +133,7 @@ class Main extends Component {
           />
           <label
             htmlFor="diet-label-drop-down"
-            className="searchbar-input-labels"
+            className="searchbar-input-labels lbt-setting"
           >
             Diet Label
           </label>
@@ -151,7 +151,7 @@ class Main extends Component {
           </Select>
           <label
             htmlFor="health-label-drop-down"
-            className="searchbar-input-labels"
+            className="searchbar-input-labels lbt-setting"
           >
             Allergies
           </label>
@@ -173,7 +173,7 @@ class Main extends Component {
           </Select>
           <label
             htmlFor="calories-drop-down"
-            className="searchbar-input-labels"
+            className="searchbar-input-labels lbt-setting"
           >
             max. calories
           </label>
@@ -191,14 +191,6 @@ class Main extends Component {
           </Select>
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
-<<<<<<< HEAD
-          <Col size="col-md-3">
-              {this.state.displayChild ? (
-                <SelectedRecipe
-                  recipeObj={this.state.recipeDetail}
-                  onChangeDisplay={this.changeDisplay}
-                />
-=======
         <h1>Recipes</h1>
         {this.state.savedPage ? (
           <Row>
@@ -220,7 +212,6 @@ class Main extends Component {
                     </div>
                   ))}
                 </div>
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
               ) : (
                 <span
                   role="img"
@@ -291,9 +282,4 @@ class Main extends Component {
     );
   }
 }
-<<<<<<< HEAD
-
 export default Main;
-=======
-export default Main;
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53

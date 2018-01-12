@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .bg-clr{
 	background-color: green;
 }
@@ -7,8 +6,8 @@
 }
 .sz{
 	color: white;
-=======
-bg-clr {
+}
+.bg-clr {
     background-color: green;
 }
 .fnt {
@@ -23,5 +22,4 @@ nav{
 }
 a.nav-link{
     color: white;
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
 }

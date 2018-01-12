@@ -239,8 +239,4 @@ class SelectedRecipe extends Component {
     );
   }
 }
-<<<<<<< HEAD
 export default SelectedRecipe;
-=======
-export default SelectedRecipe;
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
