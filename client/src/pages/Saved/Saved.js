@@ -36,22 +36,18 @@ class Saved extends Component {
   render() {
     return (
         <Row>
-          <Col id="saved" size="offset-md-3">
-            {this.state.recipes.length ? (
-           
+          <Col id="saved" size="md-12">
+            {this.state.recipes.length ? (          
               <List>
                 {this.state.recipes.map(recipe=> (
                   <ListItem key={recipe.id}>
-                  <div className="card" size="offset-md-4">
+                  <div className="card" size="md-12">
                   <img id ="savedimg" className="card-img-top" src={recipe.recipeImage} alt="Card image"/>
                   <div className="card-body">
                     <h5 className="card-title"><a href={recipe.recipeLink} target="_blank">{recipe.recipeTitle}</a></h5>
                     <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                    </div>
                 </div>  
-                
-
-                   
                     <br />   
                     <button
                     className="btn btn-danger"

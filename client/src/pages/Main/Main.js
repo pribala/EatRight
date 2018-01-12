@@ -194,14 +194,17 @@ class Main extends Component {
         {this.state.savedPage ? (<Row>
                         <div className="row text-center">
                               {this.state.recipes.length ? (
-                               <div className="cards">
-                               {this.state.recipes.map(recipe => (
-                                  <div className="col-md-4" key={recipe._id}>
+                               <div className="cards">                              
+                               {this.state.recipes.map(recipe => (                             
+                                  <div className="col-md-4" key={recipe._id}>                 
                                      <RecipeCard
                                        image={recipe.recipeImage}
                                         className="img-fluid"
                                         key={recipe.recipeLink}
                                       />
+                                      <a href={recipe.recipeLink} target="_blank">
+                                      <strong>{recipe.recipeTitle}</strong>
+                                    </a>
                                       
                                       {/* render buttons and pass props to them */}
                                     </div>
