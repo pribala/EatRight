@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import "./Nav.css";
 import { Link } from 'react-router-dom';
@@ -7,6 +8,17 @@ const Nav = () => (
     <Link className="navbar-brand fnt" to="/">
      <i class="fa fa-cutlery" aria-hidden="true"></i> Chef's Book <i class="fa fa-cutlery" aria-hidden="true"></i>
      </Link>
+=======
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Nav.css";
+const Nav = () => (
+  <nav className="navbar navbar-expand-lg bg-clr">
+    <Link className="navbar-brand fnt" to="/">
+      Chef's Book
+      <i className="fa fa-cutlery" aria-hidden="true" />
+    </Link>
+>>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
     <button
       className="navbar-toggler"
       type="button"

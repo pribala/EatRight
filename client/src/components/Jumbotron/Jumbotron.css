@@ -1,7 +1,9 @@
-
 .jumbotron {
   margin-bottom: 0px;
+<<<<<<< HEAD
   /*background-image: url(https://www.healthfulpursuit.com/wp-content/uploads/2013/11/RecipeSearch1200X630.jpg);*/
+=======
+>>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
   background-image: url(http://knoxpa.com/wp-content/uploads/2017/12/recipes-header-image.jpg);
   background-position: 0% 19%;
   background-size: cover;
@@ -9,7 +11,11 @@
   color: green;
   text-align: center;
   /*text-shadow: black 0.3em 0.3em 0.3em;*/
+<<<<<<< HEAD
 }
 /* http://mommyfood.com/images/xsearch.png.pagespeed.ic.INJxDadgAt.png */
 /* http://lovebirdrestaurant.com/wp-content/uploads/2016/08/receipt.png */
 /* http://3.bp.blogspot.com/-C7rS0xQyClE/T9jWT4eg_NI/AAAAAAAAARE/BDGpZyhkEwc/s1600/Recipe+Logo+copy.jpg */
+=======
+ }
+>>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53

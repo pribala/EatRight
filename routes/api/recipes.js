@@ -6,7 +6,9 @@ const commentsController = require('../../controllers/commentsController');
 router
   .route('/')
   .get(recipesController.findAll)
-  .post(recipesController.create);
+  .post(recipesController.create)
+  .get(commentsController.findAll)
+  .post(commentsController.create);
 
 // Matches with "/api/articles/:id"
 router
