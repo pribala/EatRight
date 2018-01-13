@@ -41,7 +41,7 @@ class Saved extends Component {
                   <ListItem key={recipe.id}>
                   <div className="card" size="md-12">
                    <h5 className="card-title"><a href={recipe.recipeLink} target="_blank">{recipe.recipeTitle}</a></h5>
-                  <img id ="savedimg" className="card-img-top" src={recipe.recipeImage} alt="Card image"/>
+                  <img id ="savedimg" className="card-img-top" src={recipe.recipeImage} alt="RECIPE"/>
                   <div className="card-body">  
                     <strong className="card-text">Diet Labels:{recipe.dietlabels}</strong><br/>
                     <strong className="card-text">Calories:{recipe.calories}</strong><br/>
