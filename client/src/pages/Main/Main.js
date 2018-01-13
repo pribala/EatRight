@@ -51,10 +51,10 @@ class Main extends Component {
         console.log(res.data.hits);
         this.setState({
           recipes: res.data.hits,
-          queryTerm: "",
-          selectValue: "",
-          Allergies: "",
-          Calories: "",
+          // queryTerm: "",
+          // selectValue: "",
+          // Allergies: "",
+          // Calories: "",
           singleRecipe: ""
         });
         console.log(this.state.recipes[0].recipe.label);
@@ -117,7 +117,7 @@ class Main extends Component {
           <h1>Search for a Recipe</h1>
         </Jumbotron>
         <br />
-        <div className="col-sm-12" id="advanced-searchbar-input-group">
+        <div className="col-sm-10" id="advanced-searchbar-input-group">
           <label
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
@@ -133,7 +133,7 @@ class Main extends Component {
           />
           <label
             htmlFor="diet-label-drop-down"
-            className="searchbar-input-labels"
+            className="searchbar-input-labels lbt-setting"
           >
             Diet Label
           </label>
@@ -151,7 +151,7 @@ class Main extends Component {
           </Select>
           <label
             htmlFor="health-label-drop-down"
-            className="searchbar-input-labels"
+            className="searchbar-input-labels lbt-setting"
           >
             Allergies
           </label>
@@ -173,7 +173,7 @@ class Main extends Component {
           </Select>
           <label
             htmlFor="calories-drop-down"
-            className="searchbar-input-labels"
+            className="searchbar-input-labels lbt-setting"
           >
             max. calories
           </label>
@@ -191,7 +191,7 @@ class Main extends Component {
           </Select>
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
-        <h1>Recipes</h1>
+        <h1 className="text-center">Recipes: {this.state.queryTerm} {this.state.Allergies} {this.state.Calories} {this.state.dietlabels}</h1>
         {this.state.savedPage ? (
           <Row>
             <div className="row text-center">
@@ -204,7 +204,7 @@ class Main extends Component {
                         className="img-fluid"
                         key={recipe.recipeLink}
                       />
-                      <a href={recipe.recipeLink} target="_blank">
+                      <a href={recipe.recipeLink} target="_blank" className="recipe-label-setting recipe-link">
                         <strong>{recipe.recipeTitle}</strong>
                       </a>
 
@@ -242,7 +242,7 @@ class Main extends Component {
                             className="img-fluid"
                             key={recipe.recipe.url}
                           />
-                          <div
+                          <div className="recipe-label-setting"
                             onClick={() =>
                               this.recipeDetail({
                                 recipeYield: recipe.recipe.yield,
