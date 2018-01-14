@@ -129,7 +129,8 @@ hr {
     font-weight: 800;
     font-size: 4rem;
     color:  #840204;;
-    font-family: 'Sedgwick Ave Display', cursive;
+    font-family: 'Rakkas', cursive;
+
 }
 
 li.list-group-item {
@@ -159,4 +160,10 @@ li.list-group-item {
 .list-overflow-container li a {
     color:darkblue;
     text-decoration: none;
+}
+h1{
+    font-family: 'Bungee Inline', cursive;
+font-style: inherit;
+font-weight: bold;
+font-size: 3.3rem;
 }

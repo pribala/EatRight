@@ -203,12 +203,12 @@ class Main extends Component {
         </div>      
         <h1 id="labeltext" className="text-center"> RECIPES {this.state.queryTerm} {this.state.Allergies} {this.state.Calories} {this.state.selectValue}</h1>
         {this.state.savedPage ? (
-          <Row>
+          <Col size="md-12">
             <div className="row text-center">
               {this.state.recipes.length ? (
                 <div className="cards">
                   {this.state.recipes.map(recipe => (
-                    <div className="col-md-4" key={recipe._id}>
+                    <div className="md-4" key={recipe._id}>
                       <RecipeCard
                         image={recipe.recipeImage}
                         className="img-fluid"
@@ -232,7 +232,7 @@ class Main extends Component {
                 </span>
               )}
             </div>
-          </Row>
+          </Col>
         ) : (
           <Col size="col-md-3 col-sm-1">
             {this.state.displayChild ? (
