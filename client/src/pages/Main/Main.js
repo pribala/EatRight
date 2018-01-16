@@ -117,14 +117,11 @@ class Main extends Component {
           <h1>Search for a Recipe</h1>
         </Jumbotron>
         <br />
-<<<<<<< HEAD
         <div className="col-sm-10" id="advanced-searchbar-input-group">
           <label
-=======
         <div className="row" >
         <Col size='md-3 sm-3 xs-3'>
         <label
->>>>>>> e0d1e42449785502ba0c89a469761e002558e7b3
             htmlFor="advanced-search-input"
             className="searchbar-input-labels"
           >
@@ -136,7 +133,6 @@ class Main extends Component {
             name="queryTerm"
             placeholder="Name"
           />
-<<<<<<< HEAD
           <label
             htmlFor="diet-label-drop-down"
             className="searchbar-input-labels lbt-setting"
@@ -198,7 +194,6 @@ class Main extends Component {
         </div>
         <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
         <h1>Recipes</h1>
-=======
         </Col>
         <Col size='md-3 sm-3 xs-3'>
         <label
