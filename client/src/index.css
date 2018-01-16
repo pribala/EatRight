@@ -7,7 +7,7 @@ html,
 body,
 #root {
     padding: 100;
-    margin: 100;
+    margin: 0 0 150px 0px;
     height: 100%;
     width: 100%;
 }
@@ -23,58 +23,48 @@ element.style {
     width: auto;
 }
 
-#searchbar {
+/* #searchbar {
     width: 100%;
     height: 60px;
     padding-top: 30px;
     background-color: #96a3ba;
-}
+} */
 
-#advanced-searchbar {
+/* #advanced-searchbar {
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
-#advanced-searchbar-input-group {
+/* #advanced-searchbar-input-group {
     display: inline-flex;
-   /* margin-left: 2%; */
+    margin-left: 2%;
     /* display: flex; */
-    flex-flow: row wrap;
+    
     /* justify-content: space-around; */
     /* align-content: flex-start; */
-}
 
-#advanced-search-input {
+/* #advanced-search-input {
     margin-right: 6px;
     width: 100px;
-  }
-  
-  .searchbar-input-labels {
-    padding-right: 8px;
-    padding-top: 6px;
-    font-weight: bold;
-  }
-  .lbt-setting{
-     padding-left: 80px;
-  }
-  
-  #diet-label-drop-down{
-}
+} */
 
-.searchbar-input-labels {
-    margin-left: 15px;
-    padding-right: 8px;
-    padding-top: 6px;
-    font-weight: bold;
-}
+/* .searchbar-input-labels {
+   padding-right: 8px;
+   padding-top: 6px;
+   font-weight: bold;
+ } */
 
+ /* .lbt-setting{
+    padding-left: 80px;
+ } */
+/* 
 #diet-label-drop-down {
     margin-right: 12px;
-}
+} */
 
-#health-label-drop-down {
+/* #health-label-drop-down {
     margin-right: 12px;
-}
+} */
 
 #notes {
     padding-left: 60px;
@@ -87,9 +77,7 @@ element.style {
         max-width: 100%;
     }
 }
-.btn-success{
-  background-color: green;
-}
+
 .form-control {
     border: 1px solid #BB1B89
 }
@@ -102,23 +90,19 @@ element.style {
     width: 100%;
     display: flex;
 }
-
-.text-center {
-    /* text-align: center!important; */
-}
-
 #savedimg {
     max-height: 350px;
-    width: 100%;
+    width: 50%;
     margin: 0px auto;
     background: cover;
-    border: 1px solid #BB1B89;
+    margin-top:20px;
+    border: 5px solid rgb(211, 65, 65);
 }
 
-.img-fluid {
+/* .img-fluid { 
     height: 400px;
     width: 400px;
-}
+} */
 
 li {
     list-style-type: none;
@@ -126,6 +110,9 @@ li {
 
 .card {
     border: 1px solid rgb(187, 27, 137);
+    max-width: 100%;
+    background: linear-gradient(to right, rgba(203,67,53,0), rgba(203,67,53,0.5));
+   
 }
 
 hr {
@@ -138,10 +125,45 @@ hr {
 .list-overflow-container {
     max-height: 100%;
 }
-h1 {
+#labeltext {
     font-weight: 800;
-    font-size: 2.5rem
+    font-size: 4rem;
+    color:  #840204;;
+    font-family: 'Rakkas', cursive;
+
 }
+
 li.list-group-item {
     padding: 15px;
+}
+
+.recipe-label-setting {
+   color: green;
+   font-size: 125%;
+   font-weight: bold;
+   margin-bottom: 2%;
+}
+
+.recipe-link:link, .recipe-link:hover, .recipe-link:active, .recipe-link:visited  {
+    text-decoration: none;
+    color: green;
+}
+.list-group-item{
+    display: block;
+}
+.card-title{
+    font-size: 40px;
+    text-align: center;
+    margin-top:10px;
+    font-weight: bold;  
+}
+.list-overflow-container li a {
+    color:darkblue;
+    text-decoration: none;
+}
+h1{
+    font-family: 'Bungee Inline', cursive;
+font-style: inherit;
+font-weight: bold;
+font-size: 3.3rem;
 }
