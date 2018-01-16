@@ -117,8 +117,6 @@ class Main extends Component {
           <h1>Search for a Recipe</h1>
         </Jumbotron>
         <br />
-        <div className="col-sm-10" id="advanced-searchbar-input-group">
-          <label
         <div className="row" >
         <Col size='md-3 sm-3 xs-3'>
         <label
@@ -133,67 +131,6 @@ class Main extends Component {
             name="queryTerm"
             placeholder="Name"
           />
-          <label
-            htmlFor="diet-label-drop-down"
-            className="searchbar-input-labels lbt-setting"
-          >
-            Diet Label
-          </label>
-          <Select
-            id="diet-label-drop-down"
-            value={this.state.selectValue}
-            onChange={this.handleChange}
-          >
-            <option value="" />
-            <option value="high-protein">high protein</option>
-            <option value="high-fiber">high fibre</option>
-            <option value="low-fat">low fat</option>
-            <option value="low-carb">low carb</option>
-            <option value="low-sodium">low sodium</option>
-          </Select>
-          <label
-            htmlFor="health-label-drop-down"
-            className="searchbar-input-labels lbt-setting"
-          >
-            Allergies
-          </label>
-          <Select
-            id="health-label-drop-down"
-            value={this.state.Allergies}
-            onChange={this.handleAllergies}
-          >
-            <option value="" />
-            <option value="alcohol-free">Alcohol Free</option>
-            <option value="dairy-free">Dairy Free</option>
-            <option value="egg-free">Egg Free</option>
-            <option value="gluten-free">Gluten Free</option>
-            <option value="peanut-free">Peanut Free</option>
-            <option value="low-sugar">Low Sugar</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="soy-free">SoyFree</option>
-            <option value="vegan">vegan</option>
-          </Select>
-          <label
-            htmlFor="calories-drop-down"
-            className="searchbar-input-labels lbt-setting"
-          >
-            max. calories
-          </label>
-          <Select
-            id="calories-drop-down"
-            value={this.state.Calories}
-            onChange={this.handleCalories}
-          >
-            <option defaultValue="selected" value=" " />
-            <option value="200">200</option>
-            <option value="300">300</option>
-            <option value="400">400</option>
-            <option value="500">500</option>
-            <option value="600">600</option>
-          </Select>
-        </div>
-        <FormBtn onClick={this.handleFormSubmit}>Submit Search</FormBtn>
-        <h1>Recipes</h1>
         </Col>
         <Col size='md-3 sm-3 xs-3'>
         <label
@@ -265,7 +202,6 @@ class Main extends Component {
 </Col>
         </div>      
         <h1 id="labeltext" className="text-center"> RECIPES {this.state.queryTerm} {this.state.Allergies} {this.state.Calories} {this.state.selectValue}</h1>
->>>>>>> e0d1e42449785502ba0c89a469761e002558e7b3
         {this.state.savedPage ? (
           <Col size="md-12">
             <div className="row text-center">
