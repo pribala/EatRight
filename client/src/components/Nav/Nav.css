@@ -1,15 +1,3 @@
-.bg-clr{
-	background-color: green;
-}
-.fnt{
-	font-family: 'Russo One', sans-serif;
-}
-.sz{
-	color: white;
-}
-bg-clr {
-    background-color: green;
-}
 .fnt {
     font-family: 'Russo One', sans-serif;
     color: white;
@@ -22,7 +10,6 @@ nav{
 }
 a.nav-link{
     color: white;
-}
 }
 span.navbar-toggler-icon{
     color: white;

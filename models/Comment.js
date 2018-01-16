@@ -19,12 +19,7 @@ const CommentSchema = new Schema({
   },
   commentBody:{
     type: String,
-<<<<<<< HEAD
     required: false,
-    default: Date.now 
-=======
-  	required: false,
->>>>>>> 70740c726ef00b9344b7d7883736a944f8fb4b53
   },
   rating:{
     type: String,
