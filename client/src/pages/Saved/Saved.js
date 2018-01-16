@@ -40,16 +40,17 @@ class Saved extends Component {
                 {this.state.recipes.map(recipe=> (
                   <ListItem key={recipe.id}>
                   <div className="card" size="md-12">
-                  <img id ="savedimg" className="card-img-top" src={recipe.recipeImage} alt="Card image"/>
-                  <div className="card-body">
-                    <h5 className="card-title"><a href={recipe.recipeLink} target="_blank">{recipe.recipeTitle}</a></h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   <h5 className="card-title"><a href={recipe.recipeLink} target="_blank">{recipe.recipeTitle}</a></h5>
+                  <img id ="savedimg" className="card-img-top" src={recipe.recipeImage} alt="RECIPE"/>
+                  <div className="card-body">  
+                    <strong className="card-text">Diet Labels:{recipe.dietlabels}</strong><br/>
+                    <strong className="card-text">Calories:{recipe.calories}</strong><br/>
+                    <strong className="card-text">Health Labels:{recipe.healthlabels}</strong>   <br/>    
                    </div>
                 </div>  
                     <br />   
                     <button
                     className="btn btn-danger"
-                    style={{ float: 'right' }}
                     onClick={() => this.deleteRecipes(recipe._id)}
                   >
                     Delete Article

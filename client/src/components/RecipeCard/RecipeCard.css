@@ -1,5 +1,5 @@
-
 .img-fluid   {
+<<<<<<< HEAD
   background-size: cover;
   background-position: 50%;
   height: 300px;
@@ -40,3 +40,28 @@ h3{
     margin-bottom: 10px;
 }
 
+=======
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+     background-size: cover;
+   margin: 2px;
+   border: 10px solid #F8DDA6;
+   border-radius: 3px;
+   -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+   box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+   cursor: pointer;
+   background-color: rgb(245, 245, 248);
+  }
+  
+  .recipeimage{
+      height: 100%;
+      width: 100%;
+      border:10px solid #F8DDA6 ;
+   border-radius: 3px;
+   -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+   box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+   cursor: pointer;
+   background-color: rgb(245, 245, 248);
+  }
+>>>>>>> e0d1e42449785502ba0c89a469761e002558e7b3

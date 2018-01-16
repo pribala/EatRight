@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 const Nav = () => (
-  <nav className="navbar navbar-expand-lg bg-clr">
-    <Link className="navbar-brand fnt" to="/">
-      Chef's Book
+  <nav className="navbar navbar-expand-lg navbar-dark " style={{backgroundColor:"green"}}>
+    <Link className="navbar-brand fnt" to="/"> <i className="fa fa-cutlery" aria-hidden="true" />
+    {" "}  Chef's Book {" "}
       <i className="fa fa-cutlery" aria-hidden="true" />
     </Link>
     <button
@@ -15,6 +15,7 @@ const Nav = () => (
       aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
+
     >
       <span className="navbar-toggler-icon" />
     </button>
