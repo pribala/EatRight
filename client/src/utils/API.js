@@ -1,21 +1,18 @@
 import axios from "axios";
-
-// const APIKEY = 'VazbN5lpcW0LjX7VjLNR39YQsDDuZlNb';
-
-//const queryUrlBase = "https://api.edamam.com/search?q=+'&q='+&app_id=eb32a015&app_key=1072993812b32bf5d3d2e6d1754f3336" ;
 const APP_ID = "e7e216b0";
 const APP_KEY = "0b5ad1a1dcce889c9ea6a9df1e16a318";
 const queryUrlBase = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}+&q=+`;
-// let getComments= function() {
-//   return axios.get("/");
-// }
-// let deleteComment= function(id) {
-//   return axios.delete("/" + id);
-// }
-// let saveComment= function(commentData) {
-//   return axios.post("/", commentData);
-// }
+
 export default {
+  login: function(creds) {
+    return axios.post('/api/users/login', creds)
+  },
+  loginCheck: function() {
+    return axios.get('/api/users/login')
+  },
+  logout: function() {
+    return axios.get('/api/users/logout')
+  },
   recipeSearch: function(queryTerms) {
     return axios.get(`${queryUrlBase}${queryTerms}`);
   },
@@ -31,9 +28,6 @@ export default {
   getComments: function(id) {
     return axios.get("/api/saved/comments/" + id);
   },
-  // Gets the book with the given id
-  
-  // Deletes the book with the given id
   deleteComment: function(id) {
     return axios.delete("/api/saved/comments/" + id);
   },
