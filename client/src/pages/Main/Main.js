@@ -117,91 +117,100 @@ class Main extends Component {
           <h1>Search for a Recipe</h1>
         </Jumbotron>
         <br />
-        <div className="row" >
-        <Col size='md-3 sm-3 xs-3'>
-        <label
-            htmlFor="advanced-search-input"
-            className="searchbar-input-labels"
-          >
-            Name
-          </label>
-          <Input
-            value={this.state.queryTerm}
-            onChange={this.handleInputChange}
-            name="queryTerm"
-            placeholder="Name"
-          />
-        </Col>
-        <Col size='md-3 sm-3 xs-3'>
-        <label
-        htmlFor="diet-label-drop-down"
-        className="searchbar-input-labels lbt-setting"
-      >
-        Diet Label
-      </label>
-      <Select
-        id="diet-label-drop-down"
-        value={this.state.selectValue}
-        onChange={this.handleChange}
-      >
-        <option value="" />
-        <option value="high-protein">high protein</option>
-        <option value="high-fiber">high fibre</option>
-        <option value="low-fat">low fat</option>
-        <option value="low-carb">low carb</option>
-        <option value="low-sodium">low sodium</option>
-      </Select>
-        </Col>
-        <Col size='md-2 sm-2 xs-2'>
-        <label
-        htmlFor="health-label-drop-down"
-        className="searchbar-input-labels lbt-setting"
-      >
-        Allergies
-      </label>
-      <Select
-        id="health-label-drop-down"
-        value={this.state.Allergies}
-        onChange={this.handleAllergies}
-      >
-        <option value="" />
-        <option value="alcohol-free">Alcohol Free</option>
-        <option value="dairy-free">Dairy Free</option>
-        <option value="egg-free">Egg Free</option>
-        <option value="gluten-free">Gluten Free</option>
-        <option value="peanut-free">Peanut Free</option>
-        <option value="low-sugar">Low Sugar</option>
-        <option value="vegetarian">Vegetarian</option>
-        <option value="soy-free">SoyFree</option>
-        <option value="vegan">vegan</option>
-      </Select>
-        </Col>
-        <Col size='md-3 sm-3 xs-3 '>
-        <label
-        htmlFor="calories-drop-down"
-        className="searchbar-input-labels lbt-setting"
-      >
-        max. calories
-      </label>
-      <Select
-        id="calories-drop-down"
-        value={this.state.Calories}
-        onChange={this.handleCalories}
-      >
-        <option defaultValue="selected" value=" " />
-        <option value="200">200</option>
-        <option value="300">300</option>
-        <option value="400">400</option>
-        <option value="500">500</option>
-        <option value="600">600</option>
-      </Select>
-        </Col>
-        <Col size='md-1 sm-1 xs-1'  >    
-        <label>  </label>
-<FormBtn onClick={this.handleFormSubmit} style={{marginTop:"15%"}}>Search</FormBtn>
-</Col>
-        </div>      
-        <h1 id="labeltext" className="text-center"> RECIPES {this.state.queryTerm} {this.state.Allergies} {this.state.Calories} {this.state.selectValue}</h1>
+        <div className="row">
+          <Col size="md-3 sm-3 xs-3">
+            <label
+              htmlFor="advanced-search-input"
+              className="searchbar-input-labels"
+            >
+              Name
+            </label>
+            <Input
+              value={this.state.queryTerm}
+              onChange={this.handleInputChange}
+              name="queryTerm"
+              placeholder="Name"
+            />
+          </Col>
+          <Col size="md-3 sm-3 xs-3">
+            <label
+              htmlFor="diet-label-drop-down"
+              className="searchbar-input-labels lbt-setting"
+            >
+              Diet Label
+            </label>
+            <Select
+              id="diet-label-drop-down"
+              value={this.state.selectValue}
+              onChange={this.handleChange}
+            >
+              <option value="" />
+              <option value="high-protein">high protein</option>
+              <option value="high-fiber">high fibre</option>
+              <option value="low-fat">low fat</option>
+              <option value="low-carb">low carb</option>
+              <option value="low-sodium">low sodium</option>
+            </Select>
+          </Col>
+          <Col size="md-2 sm-2 xs-2">
+            <label
+              htmlFor="health-label-drop-down"
+              className="searchbar-input-labels lbt-setting"
+            >
+              Allergies
+            </label>
+            <Select
+              id="health-label-drop-down"
+              value={this.state.Allergies}
+              onChange={this.handleAllergies}
+            >
+              <option value="" />
+              <option value="alcohol-free">Alcohol Free</option>
+              <option value="dairy-free">Dairy Free</option>
+              <option value="egg-free">Egg Free</option>
+              <option value="gluten-free">Gluten Free</option>
+              <option value="peanut-free">Peanut Free</option>
+              <option value="low-sugar">Low Sugar</option>
+              <option value="vegetarian">Vegetarian</option>
+              <option value="soy-free">SoyFree</option>
+              <option value="vegan">vegan</option>
+            </Select>
+          </Col>
+          <Col size="md-3 sm-3 xs-3 ">
+            <label
+              htmlFor="calories-drop-down"
+              className="searchbar-input-labels lbt-setting"
+            >
+              max. calories
+            </label>
+            <Select
+              id="calories-drop-down"
+              value={this.state.Calories}
+              onChange={this.handleCalories}
+            >
+              <option defaultValue="selected" value=" " />
+              <option value="200">200</option>
+              <option value="300">300</option>
+              <option value="400">400</option>
+              <option value="500">500</option>
+              <option value="600">600</option>
+            </Select>
+          </Col>
+          <Col size="md-1 sm-1 xs-1">
+            <label> </label>
+            <FormBtn
+              onClick={this.handleFormSubmit}
+              style={{ marginTop: "15%" }}
+            >
+              Search
+            </FormBtn>
+          </Col>
+        </div>
+        <h1 id="labeltext" className="text-center">
+          {" "}
+          RECIPES {this.state.queryTerm} {this.state.Allergies}{" "}
+          {this.state.Calories} {this.state.selectValue}
+        </h1>
         {this.state.savedPage ? (
           <Col size="md-12">
             <div className="row text-center">
@@ -214,7 +223,11 @@ class Main extends Component {
                         className="img-fluid"
                         key={recipe.recipeLink}
                       />
-                      <a href={recipe.recipeLink} target="_blank" className="recipe-label-setting recipe-link">
+                      <a
+                        href={recipe.recipeLink}
+                        target="_blank"
+                        className="recipe-label-setting recipe-link"
+                      >
                         <strong>{recipe.recipeTitle}</strong>
                       </a>
 
@@ -252,7 +265,8 @@ class Main extends Component {
                             className="img-fluid"
                             key={recipe.recipe.url}
                           />
-                          <div className="recipe-label-setting"
+                          <div
+                            className="recipe-label-setting"
                             onClick={() =>
                               this.recipeDetail({
                                 recipeYield: recipe.recipe.yield,

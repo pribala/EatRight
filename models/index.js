@@ -1,4 +1,5 @@
 module.exports = {
  Recipes: require("./recipe"),
- Comments: require("./Comment")
+ Comments: require("./Comment"),
+ User:require("./User")
 };
