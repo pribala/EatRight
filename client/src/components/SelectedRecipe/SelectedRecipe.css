@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+body {
+    font-family: 'Slabo 27px', serif;
+    color:  #840204;
+}
 #recipe-detail-container {
     max-width: 1200px;
     height: auto;
@@ -9,8 +14,9 @@
 }
 
 #recipe-detail-title {
-    font-family: 'Cardo', serif;
-    font-weight: 500;
+    font-family: 'Slabo 27px', serif;
+    font-weight: bold;
+    color:  green;
     font-size: 2em;
     margin-bottom: 10px;
     padding-right: 40px;
@@ -40,19 +46,19 @@
 
 #recipe-detail-servings {
     margin-top: 20px;
-    font-family: 'Cardo', serif;
+    font-family: 'Slabo 27px', serif;
     font-weight: 500;
     font-size: 1.7em;
 }
 
 #recipe-detail-calories {
-    font-family: 'Cardo', serif;
+    font-family: 'Slabo 27px', serif;
     font-weight: 500;
     font-size: 1.7em;
 }
 
 #recipe-detail-source {
-    font-family: 'Cardo', serif;
+   font-family: 'Slabo 27px', serif;
     font-weight: 500;
     font-size: 1.5em;
     /*text-decoration: underline;*/
@@ -84,13 +90,15 @@ li {
 }
 
 #nutrition-labels p {
-    font-family: 'Cardo', serif;
+    font-family: 'Slabo 27px', serif;
     font-weight: 500;
     font-size: 1.5em;
 }
 
 #diet-labels {
     /* margin-right: 100px; */
+    font-family: 'Slabo 27px', serif;
+    font-size: 1.5em;
 }
 
 #diet-labels li {
@@ -111,7 +119,10 @@ li {
     font-size: 20px
 }
 
-p {}
+p {
+    font-family: 'Slabo 27px', serif;
+
+}
 
 .text-center {
     text-align: center!important;
@@ -179,4 +190,9 @@ select.form-control:not([size]):not([multiple]) {
 
 i.fa fa-cutlery {
     color: whitesmoke;
+}
+
+a:link, a:hover, a:active, a:visited  {
+    text-decoration: none;
+    color: green;
 }
