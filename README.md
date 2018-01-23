@@ -1,6 +1,6 @@
 # Eat-Right!! Recipe search with React
 
-###This app allows users to search the Edamam API for recipes according to keyword, calories, diet type. Users can save,comment favourite recipes and view them. 
+This app allows users to search the Edamam API for recipes according to keyword, calories, diet type. Users can save,comment favourite recipes and view them. 
 
 ## Technologies
 * MongoDB
